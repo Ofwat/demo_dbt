@@ -1,0 +1,1 @@
+SELECT * FROM [dw].[PR14_FD_outcome_New_CSV]

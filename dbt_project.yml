@@ -34,5 +34,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   demo_dbt:
       # Applies to all files under models/example/
-      example:
-          materialized: view
+    # example:
+    #     schema: dw
+    #     materialized: view
+    tables:
+        schema: niyati
+        materialized: table
+    csvsView:
+        schema: niyati
+        materialized: view
+    viewTables:
+        schema: niyati
+        materialized: view
+seeds:
+    demo_dbt:
+        +schema: niyati
+        +enabled: true

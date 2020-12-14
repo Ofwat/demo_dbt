@@ -1,0 +1,4 @@
+packages:
+  - package: fishtown-analytics/dbt_utils
+    version: 0.6.2
+  - git: https://github.com/dbt-msft/tsql-utils.git
