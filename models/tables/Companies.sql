@@ -12,14 +12,11 @@ element as (
 
 final as (
 	
-  -- The unique key for company is = "company+element_id"  as same company have different elements types.
-  -- Example ANH is a water and sewage company and has more than 1 element type eg. Water, WasteWater, Retail HH 
-  SELECT DISTINCT pr.[Company],pr.[Company type],element.[Element_id],
-  HASHBYTES('SHA2_256', concat(Company,'-', pr.[Company type])) as [Company_id],
-  HASHBYTES('SHA2_256', concat(pr.[Company],'-', element.[Element_id])) as [Company_element_id]
-  FROM [dw].[PR14_FD_outcome_New_CSV] pr
-  INNER JOIN [dw_niyati].[Elements] element ON pr.[Element (price control)]=element.[Element_name]
-
+  SELECT DISTINCT PR14.[Company],PR14.[Company_type] ,element.[Element_id] element_id,
+   {{dbt_utils.hash(dbt_utils.concat(['Company','PR14.Company_type']))}} as [Company_id],
+   {{dbt_utils.hash(dbt_utils.concat(['Company','element_id']))}} as [Company_element_id]
+  FROM PR14
+  INNER JOIN [dw_niyati].[Elements] element ON PR14.[Element_name]=element.[Element_name]
 )
 
 select * from final
