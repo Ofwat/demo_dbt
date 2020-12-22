@@ -1,0 +1,32 @@
+with PR14 as (
+
+    select * from {{ ref('PR14_FD_outcome_New_CSV') }}
+
+),
+
+element as (
+
+    select * from {{ ref('D_Elements') }}
+
+),
+
+
+Company as (
+
+    select * from {{ ref('D_Company') }}
+
+),
+
+final as (
+	
+
+
+  SELECT DISTINCT PR14.[Company],PR14.[Company_type] ,element.[Element_id] element_id,
+   Company.Company_id as [Company_id],
+   {{dbt_utils.hash(dbt_utils.concat(['Company.Company_name','element_id']))}} as [Company_element_id]
+  FROM PR14
+  INNER JOIN element ON PR14.[Element_name]=element.[Element_name]
+  INNER JOIN Company ON PR14.[Company]=Company.[Company_name]
+)
+
+select * from final

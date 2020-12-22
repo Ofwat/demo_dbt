@@ -1,0 +1,21 @@
+version: 2
+
+models:
+    - name: D_Elements
+      description: "A Elements dbt model"
+      columns:
+          - name: Element_id
+            description: "Unique id of Element"
+            tests:
+                - unique
+                - not_null
+          - name: Element_name
+            description: "Name of Element"
+            tests:
+                - unique
+                - not_null
+          - name: Element_acronym
+            description: "Acronym  of Element"
+            tests:
+                - unique
+                - not_null
