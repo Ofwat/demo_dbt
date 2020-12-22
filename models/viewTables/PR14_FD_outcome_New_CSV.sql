@@ -1,4 +1,4 @@
-SELECT  [Unique ID]
+SELECT  [Unique ID] as Unique_ID
       ,[Company type] as Company_type
       ,[Company]
       ,[Element (price control)] as Element_name
