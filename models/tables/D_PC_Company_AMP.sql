@@ -20,19 +20,23 @@ final as (
 	  ,'PR14' AMP_name
 	  ,Company.Company_name
 	  ,element.Element_acronym
-      ,[Direction of improving performance] Direction_of_improving_performance
-      ,[Drinking water quality compliance] Drinking_water_quality_compliance
-      ,[Water quality contacts] Water_quality_contacts
-      ,[Supply interruptions (>3 hours)] Supply_interruptions_3_hours
-      ,[Pollution incidents (cat 3)] Pollution_incidents_cat_3
-      ,[Internal sewer flooding] Internal_sewer_flooding
-      ,[Scheme specific factors (all or part)] Scheme_specific_factors_all_or_part
-      ,[Asset health/ resilience (all or part)] Asset_health_resilience_all_or_part
-      ,[NEP (all or part)] NEP_all_or_part
-      ,[AIM] AIM
-      ,[No. of sub-measures] No_of_sub_measures
-      ,[Standard ODI operand] Standard_ODI_operand
-      ,[Standard ODI operand note] Standard_ODI_operand_note
+      ,ODI_type
+      ,ODI_form
+      ,In_period_ODI
+      ,Vanilla_ODI
+      ,Direction_of_improving_performance
+      ,Drinking_water_quality_compliance
+      ,Water_quality_contacts
+      ,Supply_interruptions_3_hours
+      ,Pollution_incidents_cat_3
+      ,Internal_sewer_flooding
+      ,Scheme_specific_factors_all_or_part
+      ,Asset_health_resilience_all_or_part
+      ,NEP_all_or_part
+      ,AIM
+      ,No_of_sub_measures
+      ,Standard_ODI_operand
+      ,Standard_ODI_operand_note
   FROM PR14 
 left join dw_niyati.D_Performance_commitment PC on
  ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name

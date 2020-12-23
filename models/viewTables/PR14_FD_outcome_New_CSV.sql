@@ -7,31 +7,31 @@ SELECT  [Unique ID] as Unique_ID
       ,[PC ref. (company)] as PC_ref
       ,[PR14 Annex 4 order] as Annex
       ,[Performance commitment] as Performance_commitment
-      ,[ODI type]
-      ,[ODI form]
-      ,[In-period ODI]
-      ,[Standard ('vanilla') financial ODI]
+      ,[ODI type] as ODI_type
+      ,[ODI form] as ODI_form
+      ,[In-period ODI] as In_period_ODI
+      ,[Standard ('vanilla') financial ODI] as Vanilla_ODI
       ,[Primary Category] as Primary_Category
       ,[PC unit] as PC_unit
       ,[PC unit description] as PC_unit_description
       ,[Decimal places] as Decimal_places
-      ,[Direction of improving performance]
+      ,[Direction of improving performance] as Direction_of_improving_performance
       ,[2014-15 starting level (PR14 FD)]
       ,[2015-16 PCL]
       ,[2016-17 PCL]
       ,[2017-18 PCL]
       ,[2018-19 PCL]
       ,[2019-20 PCL]
-      ,[Drinking water quality compliance]
-      ,[Water quality contacts]
-      ,[Supply interruptions (>3 hours)]
-      ,[Pollution incidents (cat 3)]
-      ,[Internal sewer flooding]
-      ,[Scheme specific factors (all or part)]
-      ,[Asset health/ resilience (all or part)]
-      ,[NEP (all or part)]
+      ,[Drinking water quality compliance] as Drinking_water_quality_compliance
+      ,[Water quality contacts] as Water_quality_contacts
+      ,[Supply interruptions (>3 hours)] as Supply_interruptions_3_hours
+      ,[Pollution incidents (cat 3)] as Pollution_incidents_cat_3
+      ,[Internal sewer flooding] as Internal_sewer_flooding
+      ,[Scheme specific factors (all or part)] as Scheme_specific_factors_all_or_part
+      ,[Asset health/ resilience (all or part)] as Asset_health_resilience_all_or_part
+      ,[NEP (all or part)] as NEP_all_or_part
       ,[AIM]
-      ,[No. of sub-measures]
+      ,[No. of sub-measures] as No_of_sub_measures
       ,[Financial_ODI_2015-16]
       ,[Financial_ODI_2016-17]
       ,[Financial_ODI_2017-18]
@@ -63,8 +63,8 @@ SELECT  [Unique ID] as Unique_ID
       ,[UnderP_payment4_incentive rate (GBPm)]
       ,[OutP_payment1_incentive rate (GBPm)]
       ,[OutP_payment2_incentive rate (GBPm)]
-      ,[Standard ODI operand]
-      ,[Standard ODI operand note]
+      ,[Standard ODI operand] as Standard_ODI_operand
+      ,[Standard ODI operand note] as Standard_ODI_operand_note
       ,[2014-15 performance level - actual]
       ,[2015-16 performance level - actual]
       ,[2015-16 PCL met?]
