@@ -13,7 +13,9 @@ AMP as (
 element as (
     select * from {{ ref('D_Elements') }}
 ),
-
+ODI as (
+    select * from {{ ref('D_ODI') }}
+),
 
 final as (
  select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
@@ -47,6 +49,7 @@ left join dw_niyati.D_Performance_commitment PC on
        and PR14.[Primary_Category]=PC.[Primary_Category]
 	   left join Company on PR14.Company=Company.Company_name
 	  left join element on PR14.[Element_acronym]=element.Element_acronym
+	  left join ODI on PR14.[ODI_type]=ODI.[odi_name]
     )
 
 select * from final
