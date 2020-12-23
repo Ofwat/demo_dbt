@@ -16,7 +16,8 @@ element as (
 
 
 final as (
- select  Unique_ID
+ select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
+      , Unique_ID
 	  ,'PR14' AMP_name
 	  ,Company.Company_name
 	  ,element.Element_acronym
