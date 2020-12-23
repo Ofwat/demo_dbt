@@ -5,7 +5,7 @@ Company as (
     select * from {{ ref('D_Company') }}
 ),
 PC as (
-    select * from {{ ref('D_PC') }}
+    select * from {{ ref('D_Performance_commitment') }}
 ),
 AMP as (
     select * from {{ ref('D_AMP_Year') }}
@@ -16,7 +16,7 @@ element as (
 
 
 final as (
- select distinct Unique_ID
+ select  Unique_ID
 	  ,'PR14' AMP_name
 	  ,Company.Company_name
 	  ,element.Element_acronym
@@ -34,11 +34,12 @@ final as (
       ,[Standard ODI operand] Standard_ODI_operand
       ,[Standard ODI operand note] Standard_ODI_operand_note
   FROM PR14 
-left join dw_niyati.D_PC PC on
+left join dw_niyati.D_Performance_commitment PC on
  ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name
 	  and PR14.[PC_unit]=PC.[PC_unit]
        and PR14.[PC_unit_description]=PC.[PC_unit_description]
        and PR14.[Decimal_places]=PC.[Decimal_places]
+       and PR14.[Primary_Category]=PC.[Primary_Category]
 	   left join Company on PR14.Company=Company.Company_name
 	  left join element on PR14.[Element_acronym]=element.Element_acronym
     )
