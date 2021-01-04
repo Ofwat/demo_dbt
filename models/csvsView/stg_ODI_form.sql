@@ -5,7 +5,7 @@ select * from {{ ref('raw_ODI_form') }}
 renamed as (
 
     select
-        odi_form
+        odi_form_name
 
     from source
 

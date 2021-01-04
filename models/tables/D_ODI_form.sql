@@ -6,8 +6,8 @@ with source as (
 
 renamed as (
 
-    select  {{dbt_utils.hash(dbt_utils.concat(['odi_form','odi_form']))}} [ODI_form_id]
-,ODI_form
+    select  {{dbt_utils.hash(dbt_utils.concat(['odi_form_name','odi_form_name']))}} [ODI_form_id]
+,odi_form_name
 
     from source
 
