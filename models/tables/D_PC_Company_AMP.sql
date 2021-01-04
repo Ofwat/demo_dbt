@@ -20,8 +20,12 @@ element as (
 final as (
  select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
       , Unique_ID
-	  ,'PR14' AMP_name
+	  ,(SELECT AMP_name 
+            FROM [dw_niyati].[D_AMP_year]) AMP_name
+      ,(SELECT AMP_id 
+            FROM [dw_niyati].[D_AMP_year]) AMP_id
 	  ,Company.Company_name
+      ,Company.Company_id
 	  ,element.Element_acronym
     /*  ,ODI_type
       ,ODI_form
@@ -49,7 +53,9 @@ left join dw_niyati.D_Performance_commitment PC on
        and PR14.[Decimal_places]=PC.[Decimal_places]
        and PR14.[Primary_Category]=PC.[Primary_Category]
 	   left join Company on PR14.Company=Company.Company_name
-	  left join element on PR14.[Element_acronym]=element.Element_acronym
+       /*left join (SELECT AMP_id 
+            FROM AMP) AMP on PR14.AMP_id=AMP.AMP_id*/
+	   left join element on PR14.[Element_acronym]=element.Element_acronym
 	 /* left join ODI on PR14.[ODI_type]=ODI.[odi_name]*/
     )
 
