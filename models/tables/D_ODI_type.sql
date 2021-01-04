@@ -1,6 +1,6 @@
 with source as (
     
-    select * from {{ ref('stg_ODI') }}
+    select * from {{ ref('stg_ODI_type') }}
 
 ),
 
