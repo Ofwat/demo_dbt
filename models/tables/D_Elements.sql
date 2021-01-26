@@ -1,6 +1,6 @@
 with PR14 as (
 
-    select * from {{ ref('PR14_FD_outcome_New_CSV') }}
+    select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 
 ),
 
@@ -13,5 +13,3 @@ FROM (SELECT DISTINCT Element_name, Element_acronym FROM PR14) m
 )
 
 select * from final
-
-

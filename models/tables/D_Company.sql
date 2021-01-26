@@ -1,6 +1,6 @@
 with PR14 as (
 
-    select * from {{ ref('PR14_FD_outcome_New_CSV') }}
+    select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 
 ),
 
