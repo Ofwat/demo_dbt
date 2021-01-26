@@ -24,6 +24,9 @@ final as (
 	  ,Company.Company_name
       ,Company.Company_id
 	  ,element.Element_acronym
+      ,Outcome
+      ,PC_ref
+      ,Annex
       ,Direction_of_improving_performance
       ,Drinking_water_quality_compliance
       ,Water_quality_contacts

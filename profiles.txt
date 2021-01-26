@@ -1,0 +1,17 @@
+name: demo_dbt
+version: 1.0
+
+macro-paths: ["macros"]
+
+demo_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: 'ODBC Driver 17 for SQL Server' 
+      server: '***********'
+      port: 1433
+      user: **********
+      password: **********
+      database: Ocean
+      schema: dw

@@ -1,4 +1,8 @@
+dbt init [project name]
+
 dbt debug: to check the sql connection
+
+dbt run: run project
 
 dbt docs generate: to generate the data catalogue
 
