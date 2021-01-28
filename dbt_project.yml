@@ -33,10 +33,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   demo_dbt:
-      # Applies to all files under models/example/
-    # example:
-    #     schema: dw
-    #     materialized: view
     tables:
         schema: niyati
         materialized: table
@@ -45,6 +41,9 @@ models:
         materialized: view
     viewTables:
         schema: niyati
+        materialized: view
+    staging:
+        schema: staging
         materialized: view
 seeds:
     demo_dbt:
