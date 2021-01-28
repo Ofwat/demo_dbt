@@ -40,6 +40,12 @@ final as (
       ,No_of_sub_measures
       ,Standard_ODI_operand
       ,Standard_ODI_operand_note
+      ,[UnderP_payment1_incentive rate (GBPm)]
+      ,[UnderP_payment2_incentive rate (GBPm)]
+      ,[UnderP_payment3_incentive rate (GBPm)]
+      ,[UnderP_payment4_incentive rate (GBPm)]
+      ,[OutP_payment1_incentive rate (GBPm)]
+      ,[OutP_payment2_incentive rate (GBPm)]
   FROM PR14 
 left join dw_niyati.D_Performance_commitment PC on
  ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name
