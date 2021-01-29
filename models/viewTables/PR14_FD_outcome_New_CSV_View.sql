@@ -119,4 +119,4 @@ SELECT  [Unique ID] as Unique_ID
       ,[Direct procurement for customers]
       ,[Dummy control]
       ,[Total]
-      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER'] FROM [dw_niyati].[PR14_FD_outcome_New_CSV]
+      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER'] FROM [PR14_FD_outcome_New_CSV]
