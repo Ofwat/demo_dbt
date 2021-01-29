@@ -37,15 +37,15 @@ models:
         schema: niyati
         materialized: table
     csvsView:
-        schema: niyati
+        schema: staging
         materialized: view
     viewTables:
-        schema: niyati
+        schema: staging
         materialized: view
     staging:
         schema: staging
         materialized: view
 seeds:
     demo_dbt:
-        +schema: niyati
+        +schema: staging
         +enabled: true
