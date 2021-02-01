@@ -1,6 +1,5 @@
 packages:
   - package: fishtown-analytics/dbt_utils
-    version: 0.6.2
+    version: 0.6.4
   - git: https://github.com/dbt-msft/tsql-utils.git
-  - git: "https://github.com/calogica/dbt-date.git"
-    revision: 0.2.2
+    revision: 0.6.4
