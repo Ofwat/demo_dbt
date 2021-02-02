@@ -2,7 +2,7 @@ with PR14 as (
     select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 ),
 Company as (
-    select * from {{ ref('D_Company') }}
+    select * from {{ ref('D_Water_Company') }}
 ),
 PC as (
     select * from {{ ref('D_Performance_commitment') }}
