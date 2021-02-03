@@ -2,7 +2,7 @@ with PR14 as (
     select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 ),
 Company as (
-    select * from {{ ref('D_Company') }}
+    select * from {{ ref('D_Water_Company') }}
 ),
 PC as (
     select * from {{ ref('D_Performance_commitment') }}
@@ -18,11 +18,11 @@ final as (
  select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
       , Unique_ID
 	  ,(SELECT AMP_name 
-            FROM [dw_niyati].[D_AMP_year]) AMP_name
+            FROM [dw_niyati].[D_AMP_year] where AMP_name = 'AMP6') AMP_name
       ,(SELECT AMP_id 
-            FROM [dw_niyati].[D_AMP_year]) AMP_id
+            FROM [dw_niyati].[D_AMP_year] where AMP_name = '1') AMP_id
 	  ,Company.Company_name
-      ,Company.Company_id
+      ,Company.Water_Company_id
 	  ,element.Element_acronym
       ,Outcome
       ,PC_ref
