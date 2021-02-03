@@ -11,7 +11,7 @@ AMP as (
     select * from {{ ref('D_AMP_Year') }}
 ),
 element as (
-    select * from {{ ref('D_Elements') }}
+    select * from {{ ref('D_Element') }}
 ),
 
 final as (

@@ -6,8 +6,8 @@ with source as (
 
 renamed as (
 
-    select  {{dbt_utils.hash(dbt_utils.concat(['odi_name','odi_description']))}} [ODI_id]
-,ODI_name,ODI_description
+    select  {{dbt_utils.hash(dbt_utils.concat(['odi_name','odi_description']))}} [ODI_Type_id]
+,ODI_name ODI_Type_Name,ODI_description ODI_Type_Description
 
     from source
 

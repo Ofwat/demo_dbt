@@ -2,10 +2,10 @@ with PR14 as (
     select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 ),
 ODI_type as (
-    select * from {{ ref('D_ODI_type') }}
+    select * from {{ ref('D_ODI_Type') }}
 ),
 D_ODI_form as (
-    select * from {{ ref('D_ODI_form') }}
+    select * from {{ ref('D_ODI_Form') }}
 ),
 PCCompanyAMP as (
     select * from {{ ref('D_PC_Company_AMP') }}
