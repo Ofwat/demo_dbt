@@ -1,5 +1,6 @@
 SELECT [Unique ID]
 ,'2019-20-estimated' Year
+,'Estimate' Submission_Status
       ,[Company type]
       ,[Company]
       ,[Element (price control)]
