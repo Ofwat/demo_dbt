@@ -19,8 +19,6 @@ final as (
       , Unique_ID
 	  ,(SELECT AMP_name 
             FROM [dw_niyati].[D_AMP_year] where AMP_name = 'AMP6') AMP_name
-      ,(SELECT AMP_id 
-            FROM [dw_niyati].[D_AMP_year] where AMP_name = '1') AMP_id
 	  ,Company.Company_name
       ,Company.Water_Company_id
 	  ,element.Element_acronym

@@ -23,4 +23,4 @@ SELECT [Unique ID]
       ,[2019-20 outperformance payment or underperformance payment in-period ODIs (GBPm)_estimates] outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm
       ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020_estimates] Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
       ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020 (GBPm)_estimates] Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
-	  from dw_niyati.PR14_FD_outcome_New_CSV
+	  from PR14_FD_outcome_New_CSV

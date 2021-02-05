@@ -31,5 +31,5 @@ SELECT [Unique ID]
 ,[OutP_payment_deadband_2017-18] OutP_payment_deadband
 ,[OutP_payment_cap_2017-18] OutP_payment_cap
 ,[UnderP_payment_collar_2017-18] UnderP_payment_collar
-	  from dw_niyati.PR14_FD_outcome_New_CSV
+	  from PR14_FD_outcome_New_CSV
 	

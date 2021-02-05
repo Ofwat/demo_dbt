@@ -6,8 +6,8 @@ with source as (
 
 renamed as (
 
-    select {{dbt_utils.hash(dbt_utils.concat(['AMP_name','Price_Review']))}}  AMP_id,AMP_name,Price_Review,start_year,end_year
-
+    select {{dbt_utils.hash(dbt_utils.concat(['AMP_name','Price_Review']))}}  AMP_id,
+    AMP_name,Price_Review,start_year,end_year,start_date,end_date
     from source
 
 )
