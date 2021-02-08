@@ -19,7 +19,7 @@ final as (
       , Unique_ID
 	  ,(SELECT AMP_name 
             FROM [dw_niyati].[D_AMP_year] where AMP_name = 'AMP6') AMP_name
-	  ,Company.Company_name
+	  ,Company.Water_Company_Name
       ,Company.Water_Company_id
 	  ,element.Element_acronym
       ,Outcome
@@ -61,7 +61,7 @@ left join dw_niyati.D_Performance_commitment PC on
        and PR14.[PC_unit_description]=PC.[PC_unit_description]
        and PR14.[Decimal_places]=PC.[Decimal_places]
        and PR14.[Primary_Category]=PC.[Primary_Category]
-	   left join Company on PR14.Company=Company.Company_name
+	   left join Company on PR14.Company=Company.Water_Company_Name
 	   left join element on PR14.[Element_acronym]=element.Element_acronym
     )
 

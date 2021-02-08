@@ -13,8 +13,7 @@ company_type as (
 
 final as (
 	
-  SELECT DISTINCT PR14.[Company] Company_acronym,company_names.Company_name,PR14.[Company_type],company_type.Company_type_name,
-   {{dbt_utils.hash(dbt_utils.concat(['PR14.Company','PR14.Company_type']))}} as [Water_Company_id]
+  SELECT DISTINCT {{dbt_utils.hash(dbt_utils.concat(['PR14.Company','PR14.Company_type']))}} as [Water_Company_id],PR14.[Company] Water_Company_acronym,company_names.Company_name Water_Company_Name,PR14.[Company_type] Water_Company_Type,company_type.Company_type_name Water_Company_Type_Description 
   FROM PR14
   left join company_names on
  PR14.[Company]=company_names.[Company_acronym]
