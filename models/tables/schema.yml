@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: D_Elements
+    - name: D_Element
       description: "A Elements dbt model"
       columns:
           - name: Element_id

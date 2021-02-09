@@ -55,7 +55,7 @@ final as (
       ,[Total]
       ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER']
   FROM PR14 
-left join dw_niyati.D_Performance_commitment PC on
+left join PC on
  ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name
 	  and PR14.[PC_unit]=PC.[PC_unit]
        and PR14.[PC_unit_description]=PC.[PC_unit_description]
