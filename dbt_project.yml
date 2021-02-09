@@ -36,7 +36,6 @@ vars:
 models:
   demo_dbt:
     tables:
-        schema: niyati
         materialized: table
     csvsView:
         schema: staging
