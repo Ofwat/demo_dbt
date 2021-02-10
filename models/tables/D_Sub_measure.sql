@@ -18,7 +18,7 @@ final as (
 SELECT submeasure.Unique_ID,submeasure.Company_type,submeasure.Company,submeasure.Element_acronym,submeasure.PC_ref, submeasure.Performance_commitment
       ,submeasure.ODI_type,submeasure.Primary_Category,submeasure.PC_unit_description, sub_measure_ID,sub_measure,sub_measure_category,Sub_measure_weighting, submeasure.Decimal_places,Unit FROM submeasure 
 join PCCompanyAMP on PCCompanyAMP.Unique_ID = submeasure.Unique_ID
-join Company on Company.Company_acronym = submeasure.Company
+join Company on Company.Water_Company_acronym = submeasure.Company
 join element on element.Element_acronym = submeasure.Element_acronym
 )
 
