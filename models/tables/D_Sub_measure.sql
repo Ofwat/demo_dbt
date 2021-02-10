@@ -15,11 +15,11 @@ PC as (
 ),
 
 final as (
-SELECT  sub_measure_ID, sub_measure, sub_measure_category, Company, submeasure.Element_acronym, PC.PC_Name,Sub_measure_weighting, Unit, submeasure.Decimal_places FROM submeasure 
+SELECT submeasure.Unique_ID,submeasure.Company_type,submeasure.Company,submeasure.Element_acronym,submeasure.PC_ref, submeasure.Performance_commitment
+      ,submeasure.ODI_type,submeasure.Primary_Category,submeasure.PC_unit_description, sub_measure_ID,sub_measure,sub_measure_category,Sub_measure_weighting, submeasure.Decimal_places,Unit FROM submeasure 
 join PCCompanyAMP on PCCompanyAMP.Unique_ID = submeasure.Unique_ID
 join Company on Company.Company_acronym = submeasure.Company
 join element on element.Element_acronym = submeasure.Element_acronym
-join PC on PC.PC_Name = ltrim(right(submeasure.[Performance_commitment], len(submeasure.[Performance_commitment]) - charindex(':',submeasure.[Performance_commitment])))
 )
 
 select * from final

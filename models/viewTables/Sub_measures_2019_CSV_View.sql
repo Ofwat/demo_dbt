@@ -1,12 +1,12 @@
 SELECT [Unique ID] Unique_ID
-      ,[Company type]
+      ,[Company type] Company_type
       ,[Company]
       ,[Element acronym] Element_acronym
-      ,[PC ref. (company)]
+      ,[PC ref. (company)] PC_ref
       ,[Performance commitment] Performance_commitment
-      ,[PC ODI type]
-      ,[PC primary category]
-      ,[PC unit description]
+      ,[PC ODI type] ODI_type
+      ,[PC primary category] Primary_Category
+      ,[PC unit description] PC_unit_description
       ,[2014-15 starting level (PR14 FD)]
       ,[2015-16 PCL]
       ,[2016-17 PCL]

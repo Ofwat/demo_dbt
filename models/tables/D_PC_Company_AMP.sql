@@ -18,7 +18,7 @@ final as (
  select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
       , Unique_ID
 	  ,(SELECT AMP_name 
-            FROM [dw_niyati].[D_AMP_year] where AMP_name = 'AMP6') AMP_name
+            FROM AMP where AMP_name = 'AMP6') AMP_name
 	  ,Company.Company_name
       ,Company.Water_Company_id
 	  ,element.Element_acronym
