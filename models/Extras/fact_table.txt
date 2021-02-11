@@ -4,7 +4,7 @@ with PR14 as (
 AMP as (
     select * from {{ ref('D_AMP_Year') }}
 ),
-/*ODI_type as (
+/*odi_type as (
     select * from {{ ref('D_ODI_type') }}
 ),
 D_ODI_form as (
@@ -24,7 +24,7 @@ element as (
 */
 
 final as (
- select {{dbt_utils.hash(dbt_utils.concat(['Performance_commitment','Primary_Category','ODI_type.ODI_id','D_ODI_form.ODI_form_id','Company','element.Element_acronym']))}} [PC_ODI_id]
+ select {{dbt_utils.hash(dbt_utils.concat(['performance_commitment','primary_category','odi_type.ODI_id','D_ODI_form.ODI_form_id','Company','element.element_acronym']))}} [PC_ODI_id]
 	  ,(SELECT AMP_name 
             FROM [dw_niyati].[D_AMP_year]) AMP_name
       ,(SELECT AMP_id 

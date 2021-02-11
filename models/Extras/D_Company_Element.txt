@@ -6,8 +6,8 @@ with PR14 as (
 
 final as (
 	
-  SELECT DISTINCT PR14.Company,PR14.Company_type,PR14.Element_name,PR14.Element_acronym,
-   {{dbt_utils.hash(dbt_utils.concat(['PR14.Company','Element_name']))}} as [Company_Element_id]
+  SELECT DISTINCT PR14.Company,PR14.company_type,PR14.element_name,PR14.element_acronym,
+   {{dbt_utils.hash(dbt_utils.concat(['PR14.Company','element_name']))}} as [Company_Element_id]
   FROM PR14
 )
 

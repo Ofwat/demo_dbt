@@ -9,12 +9,12 @@ models:
             tests:
                 - unique
                 - not_null
-          - name: Element_name
+          - name: element_name
             description: "Name of Element"
             tests:
                 - unique
                 - not_null
-          - name: Element_acronym
+          - name: element_acronym
             description: "Acronym  of Element"
             tests:
                 - unique

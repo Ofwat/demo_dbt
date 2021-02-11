@@ -1,12 +1,11 @@
 with source as (
-select * from {{ ref('raw_AMP_Year') }}
+    select * from {{ ref('raw_AMP_year') }}
 ),
 
 renamed as (
 
     select
-       AMP_name,Price_Review,start_year,end_year,start_date,end_date
-
+       amp_name,price_review,start_year,end_year,start_date,end_date
     from source
 
 )

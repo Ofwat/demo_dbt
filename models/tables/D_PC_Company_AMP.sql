@@ -1,68 +1,66 @@
-with PR14 as (
+with pr14 as (
     select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 ),
-Company as (
-    select * from {{ ref('D_Water_Company') }}
+company as (
+    select * from {{ ref('D_Water_company') }}
 ),
-PC as (
+pc as (
     select * from {{ ref('D_Performance_commitment') }}
 ),
-AMP as (
-    select * from {{ ref('D_AMP_Year') }}
+dateofwat as (
+    select * from {{ ref('D_Date_OFWAT') }}
 ),
 element as (
     select * from {{ ref('D_Element') }}
 ),
 
 final as (
- select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
-      , Unique_ID
-	  ,(SELECT AMP_name 
-            FROM [D_AMP_year] where AMP_name = 'AMP6') AMP_name
-	  ,Company.Water_Company_Name
-      ,Company.Water_Company_id
-	  ,element.Element_acronym
-      ,Outcome
-      ,PC_ref
-      ,Annex
-      ,Direction_of_improving_performance
-      ,Drinking_water_quality_compliance
-      ,Water_quality_contacts
-      ,Supply_interruptions_3_hours
-      ,Pollution_incidents_cat_3
-      ,Internal_sewer_flooding
-      ,Scheme_specific_factors_all_or_part
-      ,Asset_health_resilience_all_or_part
-      ,NEP_all_or_part
-      ,AIM
-      ,No_of_sub_measures
-      ,Standard_ODI_operand
-      ,Standard_ODI_operand_note
-      ,[UnderP_payment1_incentive rate (GBPm)]
-      ,[UnderP_payment2_incentive rate (GBPm)]
-      ,[UnderP_payment3_incentive rate (GBPm)]
-      ,[UnderP_payment4_incentive rate (GBPm)]
-      ,[OutP_payment1_incentive rate (GBPm)]
-      ,[OutP_payment2_incentive rate (GBPm)]
-      ,[Water resources]
-      ,[Water network plus]
-      ,[Wastewater network plus]
-      ,[Bioresources (sludge)]
-      ,[Residential retail]
-      ,[Business retail]
-      ,[Direct procurement for customers]
-      ,[Dummy control]
-      ,[Total]
-      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER']
-  FROM PR14 
-left join PC on
- ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name
-	  and PR14.[PC_unit]=PC.[PC_unit]
-       and PR14.[PC_unit_description]=PC.[PC_unit_description]
-       and PR14.[Decimal_places]=PC.[Decimal_places]
-       and PR14.[Primary_Category]=PC.[Primary_Category]
-	   left join Company on PR14.Company=Company.Water_Company_Name
-	   left join element on PR14.[Element_acronym]=element.Element_acronym
-    )
+    select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_Name','pc.primary_category']))}} [D_pc_company_amp_id]
+    , unique_id
+    ,(SELECT Distinct(amp_name) FROM dateofwat where amp_name = 'AMP6') amp_name
+    ,company.water_company_name
+    ,company.D_water_company_id
+    ,element.element_acronym
+    ,outcome
+    ,pc_ref
+    ,pc.D_performance_commitment_id
+    ,annex
+    ,direction_of_improving_performance
+    ,drinking_water_quality_compliance
+    ,water_quality_contacts
+    ,supply_interruptions_3_hours
+    ,pollution_incidents_cat_3
+    ,internal_sewer_flooding
+    ,scheme_specific_factors_all_or_part
+    ,asset_health_resilience_all_or_part
+    ,nep_all_or_part
+    ,AIM
+    ,no_of_sub_measures
+    ,standard_odi_operand
+    ,standard_odi_operand_note
+    ,[UnderP_payment1_incentive rate (GBPm)]
+    ,[UnderP_payment2_incentive rate (GBPm)]
+    ,[UnderP_payment3_incentive rate (GBPm)]
+    ,[UnderP_payment4_incentive rate (GBPm)]
+    ,[OutP_payment1_incentive rate (GBPm)]
+    ,[OutP_payment2_incentive rate (GBPm)]
+    ,[Water resources]
+    ,[Water network plus]
+    ,[Wastewater network plus]
+    ,[Bioresources (sludge)]
+    ,[Residential retail]
+    ,[Business retail]
+    ,[Direct procurement for customers]
+    ,[Dummy control]
+    FROM pr14 
+    left join pc on
+    ltrim(right(pr14.performance_commitment, len(pr14.performance_commitment) - charindex(':',pr14.performance_commitment)))=pc.pc_name
+    and pr14.pc_unit=pc.pc_unit
+    and pr14.pc_unit_description=pc.pc_unit_description
+    and pr14.decimal_places=pc.decimal_places
+    and pr14.primary_category=pc.primary_category
+    left join company on pr14.company=company.water_company_acronym
+    left join element on pr14.element_acronym=element.element_acronym
+)
 
 select * from final

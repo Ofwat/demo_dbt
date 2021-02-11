@@ -1,7 +1,7 @@
 with PR14 as (
     select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
 ),
-ODI_type as (
+odi_type as (
     select * from {{ ref('D_ODI_type') }}
 ),
 D_ODI_form as (
@@ -12,23 +12,23 @@ PCCompanyAMP as (
 ),
 
 final as (
- select {{dbt_utils.hash(dbt_utils.concat(['PR14.Unique_ID','ODI_type.ODI_id','D_ODI_form.odi_form_name']))}} [PC_ODI_id]
-	  , PR14.Unique_ID
-      , Performance_commitment
-      , Primary_Category
-      , PR14.ODI_type
-      , ODI_type.ODI_id
-      , PR14.ODI_form
+ select {{dbt_utils.hash(dbt_utils.concat(['PR14.unique_id','odi_type.ODI_id','D_ODI_form.odi_form_name']))}} [PC_ODI_id]
+	  , PR14.unique_id
+      , performance_commitment
+      , primary_category
+      , PR14.odi_type
+      , odi_type.ODI_id
+      , PR14.odi_form
       , D_ODI_form.ODI_form_id
-      , In_period_ODI
-      , Vanilla_ODI
+      , in_period_odi
+      , vanilla_odi
   FROM PR14 
 left join PCCompanyAMP on
- PR14.[Unique_ID]=PCCompanyAMP.[Unique_ID]
-left join ODI_type on
- PR14.[ODI_type]=ODI_type.[odi_name]
+ PR14.[unique_id]=PCCompanyAMP.[unique_id]
+left join odi_type on
+ PR14.[odi_type]=odi_type.[odi_name]
 left join D_ODI_form on
- PR14.[ODI_form]=D_ODI_form.[odi_form_name]
+ PR14.[odi_form]=D_ODI_form.[odi_form_name]
 )
 
 select * from final

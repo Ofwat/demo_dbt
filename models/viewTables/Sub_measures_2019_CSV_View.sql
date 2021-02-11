@@ -1,12 +1,12 @@
-SELECT [Unique ID] Unique_ID
-      ,[Company type] Company_type
-      ,[Company]
-      ,[Element acronym] Element_acronym
-      ,[PC ref. (company)] PC_ref
-      ,[Performance commitment] Performance_commitment
-      ,[PC ODI type] ODI_type
-      ,[PC primary category] Primary_Category
-      ,[PC unit description] PC_unit_description
+SELECT [Unique ID] unique_id
+      ,[Company type] company_type
+      ,[Company] company
+      ,[Element acronym] element_acronym
+      ,[PC ref. (company)] pc_ref
+      ,[Performance commitment] performance_commitment
+      ,[PC ODI type] odi_type
+      ,[PC primary category] primary_category
+      ,[PC unit description] pc_unit_description
       ,[2014-15 starting level (PR14 FD)]
       ,[2015-16 PCL]
       ,[2016-17 PCL]
@@ -18,7 +18,7 @@ SELECT [Unique ID] Unique_ID
       ,[Sub-measure category] sub_measure_category
       ,[Sub-measure weighting] Sub_measure_weighting
       ,[Unit]
-      ,[Decimal places] Decimal_places
+      ,[Decimal places] decimal_places
       ,[Reference_Regulatory output during 2010-15  ]
       ,[Reference_Expected performance by 2014-15  ]
       ,[Reference_2015-16]
