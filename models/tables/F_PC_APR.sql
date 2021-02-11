@@ -10,16 +10,16 @@ DPC as (
     select * from {{ ref('D_PC_Company_AMP') }}
 ),
 Odi_Type as (
-    select * from {{ ref('D_ODI_Type') }}
+    select * from {{ ref('D_ODI_type') }}
 ),
 ODI_Type_INP_ODI as (
-    select * from {{ ref('D_ODI_Type') }}
+    select * from {{ ref('D_ODI_type') }}
 ),
 e as (
     select * from {{ ref('D_Element') }}
 ),
 form as (
-    select * from {{ ref('D_ODI_Form') }}
+    select * from {{ ref('D_ODI_form') }}
 ),
 Submission as (
     select * from {{ ref('D_Submission_status') }}
