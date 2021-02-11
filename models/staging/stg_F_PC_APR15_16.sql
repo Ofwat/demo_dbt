@@ -1,6 +1,6 @@
 SELECT [Unique ID]
-,'2015-16' Year
-,'Actual' Submission_Status
+,'2015-16' year
+,'Actual' submission_Status
 ,[Company type] company_type
 ,[Company] Company
 ,[Element (price control)] Element_price_control

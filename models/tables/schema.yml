@@ -4,7 +4,7 @@ models:
     - name: D_Element
       description: "A Elements dbt model"
       columns:
-          - name: Element_id
+          - name: D_element_id
             description: "Unique id of Element"
             tests:
                 - unique
