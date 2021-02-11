@@ -35,6 +35,10 @@ Year OFWAT_Year
 ,Submission_Status_ID,
 e.element_ID,
 form.ODI_Form_ID
+,[UnderP_payment_collar]
+,[UnderP_payment_deadband]
+,[OutP_payment_deadband]
+,[OutP_payment_cap]
 ,PCL 
 ,PCL_met 
 ,performance_level_actual PCL_Actual
