@@ -56,42 +56,49 @@ models:
         materialized: view
         stg_F_Sub_Measure_APR14_15:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_APR15_16:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_APR16_17:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_APR17_18:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_APR18_19:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_APR19_20:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)
                 performance_level_met: varchar(100)
         stg_F_Sub_Measure_Union:
             column_types:
+                PCL: varchar(100)
                 Reference: varchar(100)
                 High: varchar(100)
                 Low: varchar(100)

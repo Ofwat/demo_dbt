@@ -1,5 +1,6 @@
 SELECT [Unique_ID]
    	  ,'2016-17' Year
+      ,'Actual' Submission_Status
       ,[Company_type]
       ,[Company]
       ,[Element_acronym]

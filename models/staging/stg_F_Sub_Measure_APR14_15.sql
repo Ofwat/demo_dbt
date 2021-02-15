@@ -1,6 +1,7 @@
 
 SELECT [Unique_ID]
    	  ,'2014-15' Year
+	  ,'Actual' Submission_Status
       ,[Company_type]
       ,[Company]
       ,[Element_acronym]
@@ -10,7 +11,7 @@ SELECT [Unique_ID]
       ,[Primary_Category]
       ,[PC_unit_description]
       ,[2014-15 starting level (PR14 FD)]
-      ,[2015-16 PCL] PCL
+      ,'' PCL
       ,[sub_measure_ID]
       ,[sub_measure]
       ,[sub_measure_category]
