@@ -1,4 +1,4 @@
-SELECT [Unique ID]
+select [Unique ID]
 ,'2019-20-estimated' year
 ,'Estimate' submission_Status
 ,[Company type]

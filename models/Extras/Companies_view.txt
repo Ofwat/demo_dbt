@@ -12,9 +12,9 @@ element as (
 
 final as (
 	
-  SELECT DISTINCT pr.[Company],pr.[Company type] company_type ,element.[Element_id] element_id,
+  select DISTINCT pr.[Company],pr.[Company type] company_type ,element.[Element_id] element_id,
    {{dbt_utils.hash(dbt_utils.concat('Company','company_type'))}} as [Company_id]
-  FROM [dw].[PR14_FD_outcome_New_CSV] pr
+  from [dw].[PR14_FD_outcome_New_CSV] pr
   INNER JOIN [dw_niyati].[Elements] element ON pr.[Element (price control)]=element.[element_name]
 
 )

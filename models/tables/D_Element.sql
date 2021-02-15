@@ -5,9 +5,10 @@ with pr14 as (
 
 final as (
 	
-    SELECT  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} [D_element_id],[element_name],[element_acronym]
-    FROM (SELECT DISTINCT element_name, element_acronym FROM pr14) m
-
+    select  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} [D_element_id]
+    ,[element_name]
+    ,[element_acronym]
+    from (select distinct element_name, element_acronym from pr14) e
 )
 
 select * from final

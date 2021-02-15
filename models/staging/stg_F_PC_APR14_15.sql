@@ -1,4 +1,4 @@
-SELECT [Unique ID]
+select [Unique ID]
 ,'2014-15' year
 ,'Actual' submission_Status
 ,[Company type] company_type

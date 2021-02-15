@@ -10,12 +10,12 @@ company_type as (
 
 final as (
 
-  SELECT DISTINCT {{dbt_utils.hash(dbt_utils.concat(['pr14.Company','pr14.company_type']))}} as [D_water_company_id]
+  select DISTINCT {{dbt_utils.hash(dbt_utils.concat(['pr14.Company','pr14.company_type']))}} as [D_water_company_id]
   ,pr14.Company water_company_acronym
   ,company_names.water_company_name
   ,pr14.company_type water_company_type
   ,company_type.water_company_type_description 
-  FROM pr14
+  from pr14
   left join company_names on pr14.Company=company_names.water_company_acronym
   left join company_type on pr14.company_type=company_type.water_company_type
 

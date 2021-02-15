@@ -32,7 +32,7 @@ final as (
       , D_ODI_form.ODI_form_id
       , in_period_odi
       , vanilla_odi
-  FROM PR14 
+  from PR14 
 left join PCCompanyAMP on
  PR14.[unique_id]=PCCompanyAMP.[unique_id]
 left join odi_type on

@@ -1,4 +1,4 @@
-SELECT [Unique ID] unique_id
+select [Unique ID] unique_id
       ,[Company type] company_type
       ,[Company] company
       ,[Element acronym] element_acronym
@@ -64,4 +64,4 @@ SELECT [Unique ID] unique_id
       ,[2017-18 to 2018-19]
       ,[2018-19 to 2019-20]
       ,[2014-15 to 2016-17 (AMP so far)]
-  FROM dw_staging.[Sub_measures_2019_CSV]
+  from dw_staging.[Sub_measures_2019_CSV]

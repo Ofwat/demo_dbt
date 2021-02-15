@@ -6,8 +6,8 @@ with Company_Element as (
 
 final as (
 	
-SELECT  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} [Element_id],[element_name],[element_acronym]
-FROM (SELECT DISTINCT element_name, element_acronym FROM Company_Element) m
+select  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} [Element_id],[element_name],[element_acronym]
+from (select DISTINCT element_name, element_acronym from Company_Element) m
 
 )
 

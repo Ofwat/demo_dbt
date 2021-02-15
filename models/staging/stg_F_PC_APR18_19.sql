@@ -1,4 +1,4 @@
-SELECT [Unique ID]
+select [Unique ID]
 ,'2018-19' year
 ,'Actual' submission_Status
 ,[Company type]

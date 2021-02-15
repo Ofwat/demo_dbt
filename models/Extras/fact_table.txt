@@ -25,10 +25,10 @@ element as (
 
 final as (
  select {{dbt_utils.hash(dbt_utils.concat(['performance_commitment','primary_category','odi_type.ODI_id','D_ODI_form.ODI_form_id','Company','element.element_acronym']))}} [PC_ODI_id]
-	  ,(SELECT AMP_name 
-            FROM [dw_niyati].[D_AMP_year]) AMP_name
-      ,(SELECT AMP_id 
-            FROM [dw_niyati].[D_AMP_year]) AMP_id
+	  ,(select AMP_name 
+            from [dw_niyati].[D_AMP_year]) AMP_name
+      ,(select AMP_id 
+            from [dw_niyati].[D_AMP_year]) AMP_id
       ,Financial_ODI
       ,UnderP_payment_collar
       ,UnderP_payment_deadband

@@ -3,7 +3,7 @@ DECLARE @EndDate DATE = '2026-12-31'
 
 WHILE @CurrentDate < @EndDate
 BEGIN
-   SELECT Date_ID = YEAR(@CurrentDate) * 10000 + MONTH(@CurrentDate) * 100 + DAY(@CurrentDate),
+   select Date_ID = YEAR(@CurrentDate) * 10000 + MONTH(@CurrentDate) * 100 + DAY(@CurrentDate),
       DATE = @CurrentDate,
       Day = DAY(@CurrentDate),
       [DaySuffix] = CASE 

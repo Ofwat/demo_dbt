@@ -6,9 +6,9 @@ with Company_Element as (
 
 final as (
 	
-  SELECT DISTINCT Company_Element.[Company] Company_name,Company_Element.[company_type],
+  select DISTINCT Company_Element.[Company] Company_name,Company_Element.[company_type],
    {{dbt_utils.hash(dbt_utils.concat(['Company_Element.Company','Company_Element.company_type']))}} as [Company_id]
-  FROM Company_Element
+  from Company_Element
 )
 
 select * from final

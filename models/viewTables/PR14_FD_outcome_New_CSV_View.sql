@@ -1,4 +1,4 @@
-SELECT  [Unique ID] as unique_id
+select  [Unique ID] as unique_id
       ,[Company type] as company_type
       ,[Company] company
       ,[Element (price control)] as element_name
@@ -119,4 +119,4 @@ SELECT  [Unique ID] as unique_id
       ,[Direct procurement for customers]
       ,[Dummy control]
       ,[Total]
-      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER'] FROM dw_staging.[PR14_FD_outcome_New_CSV]
+      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER'] from dw_staging.[PR14_FD_outcome_New_CSV]

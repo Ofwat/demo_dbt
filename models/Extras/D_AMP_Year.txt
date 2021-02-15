@@ -1,4 +1,4 @@
 
 {{ config(schema='niyati') }}
 
-SELECT * FROM [dw_niyati].[D_AMP_Year]
+select * from [dw_niyati].[D_AMP_Year]

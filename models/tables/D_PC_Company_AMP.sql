@@ -10,20 +10,15 @@ pc as (
 dateofwat as (
     select * from {{ ref('D_Date_OFWAT') }}
 ),
-element as (
-    select * from {{ ref('D_Element') }}
-),
 
 final as (
-    select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_Name','pc.primary_category']))}} [D_pc_company_amp_id]
-    , unique_id
-    ,(SELECT Distinct(amp_name) FROM dateofwat where amp_name = 'AMP6') amp_name
-    ,company.water_company_name
-    ,company.D_water_company_id
-    ,element.element_acronym
-    ,outcome
-    ,pc_ref
+    select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_name','pc.primary_category']))}} [D_pc_company_amp_id]
     ,pc.D_performance_commitment_id
+    ,pc.pc_name
+    ,company.D_water_company_id
+    ,unique_id
+    ,(select distinct (amp_name) from dateofwat where amp_name = 'AMP6') amp_name
+    ,outcome
     ,annex
     ,direction_of_improving_performance
     ,drinking_water_quality_compliance
@@ -52,15 +47,14 @@ final as (
     ,[Business retail]
     ,[Direct procurement for customers]
     ,[Dummy control]
-    FROM pr14 
-    left join pc on
-    ltrim(right(pr14.performance_commitment, len(pr14.performance_commitment) - charindex(':',pr14.performance_commitment)))=pc.pc_name
-    and pr14.pc_unit=pc.pc_unit
-    and pr14.pc_unit_description=pc.pc_unit_description
-    and pr14.decimal_places=pc.decimal_places
-    and pr14.primary_category=pc.primary_category
-    left join company on pr14.company=company.water_company_acronym
-    left join element on pr14.element_acronym=element.element_acronym
+    from pr14 
+        left join pc
+        on ltrim(right(pr14.performance_commitment, len(pr14.performance_commitment) - charindex(':',pr14.performance_commitment)))=pc.pc_name
+        and pr14.pc_unit=pc.pc_unit
+        and pr14.pc_unit_description=pc.pc_unit_description
+        and pr14.decimal_places=pc.decimal_places
+        and pr14.primary_category=pc.primary_category
+        left join company on pr14.company=company.water_company_acronym
 )
 
 select * from final
