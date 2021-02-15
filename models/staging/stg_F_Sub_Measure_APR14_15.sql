@@ -19,13 +19,13 @@ SELECT [Unique_ID]
       ,[Decimal_places]
       ,[Reference_Regulatory output during 2010-15  ] 
       ,[Reference_Expected performance by 2014-15  ]
-      ,NULL Reference
+      ,'' Reference
       ,[High_Regulatory output during 2010-15  ]
       ,[High_Expected performance by 2014-15  ]
-      ,NULL High
+      ,'' High
       ,[Low_Regulatory output during 2010-15  ]
       ,[Low_Expected performance by 2014-15  ]
-      ,NULL Low
+      ,'' Low
       ,[Failure threshold for AMP6]
       ,[2014-15 performance level - actual] performance_level_actual
       ,'' performance_level_met
