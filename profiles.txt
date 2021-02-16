@@ -14,4 +14,13 @@ demo_dbt:
       user: **********
       password: **********
       database: Ocean
+      schema: *Please enter your own schemas references*
+    production:
+      type: sqlserver
+      driver: 'ODBC Driver 17 for SQL Server' 
+      server: '***********'
+      port: 1433
+      user: **********
+      password: **********
+      database: Ocean
       schema: dw

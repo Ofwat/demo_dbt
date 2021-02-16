@@ -5,7 +5,7 @@ with pr14 as (
 
 final as (
     select unique_id
-    ,'2019-20-estimated' year
+    ,'2019-20' year
     ,'Estimate' submission_status
 	,company_type
 	,company
