@@ -19,7 +19,7 @@ e as (
     select * from {{ ref('D_Element') }}
 ),
 form as (
-    select * from {{ ref('D_ODI_form') }}
+    select * from {{ ref('D_ODI_Form') }}
 ),
 Submission as (
     select * from {{ ref('D_Submission_status') }}
