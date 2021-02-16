@@ -10,6 +10,15 @@ pc as (
 dateofwat as (
     select * from {{ ref('D_Date_OFWAT') }}
 ),
+odi_form as (
+    select * from {{ ref('D_ODI_form') }}
+),
+odi_type as (
+    select * from {{ ref('D_ODI_type') }}
+),
+amp as (
+    select * from {{ ref('D_AMP_year') }}
+),
 
 final as (
     select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_name','pc.primary_category']))}} [D_pc_company_amp_id]
@@ -17,7 +26,7 @@ final as (
     ,pc.pc_name
     ,company.D_water_company_id
     ,unique_id
-    ,(select distinct (amp_name) from dateofwat where amp_name = 'AMP6') amp_name
+    ,D_amp_year_id 
     ,outcome
     ,annex
     ,direction_of_improving_performance
@@ -55,6 +64,10 @@ final as (
         and pr14.decimal_places=pc.decimal_places
         and pr14.primary_category=pc.primary_category
         left join company on pr14.company=company.water_company_acronym
+        left join odi_form on PR14.odi_form=odi_form.odi_form_name
+        left join odi_type on PR14.odi_type=odi_type.ODI_Type_Name
+        cross join amp
+        where amp.amp_name = 'AMP6'
 )
 
 select * from final
