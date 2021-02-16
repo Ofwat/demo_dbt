@@ -13,14 +13,21 @@ AMP as (
 element as (
     select * from {{ ref('D_Element') }}
 ),
-
+odi_form as (
+    select * from {{ ref('D_ODI_Form') }}
+),
+odi_type as (
+    select * from {{ ref('D_ODI_Type') }}
+),
 final as (
  select {{dbt_utils.hash(dbt_utils.concat(['Unique_ID','PC.PC_Name','PC.Primary_Category']))}} [PC_Company_AMP_id]
       , Unique_ID
-	  ,(SELECT AMP_name 
-            FROM [D_AMP_year] where AMP_name = 'AMP6') AMP_name
+	  ,AMP_ID
+      ,AMP_name
 	  ,Company.Water_Company_Name
       ,Company.Water_Company_id
+      ,odi_form.ODI_Form_id
+      ,odi_type.ODI_Type_id
 	  ,element.Element_acronym
       ,Outcome
       ,PC_ref
@@ -51,9 +58,6 @@ final as (
       ,[Residential retail]
       ,[Business retail]
       ,[Direct procurement for customers]
-      ,[Dummy control]
-      ,[Total]
-      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER']
   FROM PR14 
 left join PC on
  ltrim(right(PR14.[Performance_commitment], len(PR14.[Performance_commitment]) - charindex(':',PR14.[Performance_commitment])))=PC.PC_Name
@@ -61,8 +65,12 @@ left join PC on
        and PR14.[PC_unit_description]=PC.[PC_unit_description]
        and PR14.[Decimal_places]=PC.[Decimal_places]
        and PR14.[Primary_Category]=PC.[Primary_Category]
+       left join odi_form on PR14.odi_form=odi_form.odi_form_name
+       left join odi_type on PR14.odi_type=odi_type.ODI_Type_Name
 	   left join Company on PR14.Company=Company.Water_Company_Name
 	   left join element on PR14.[Element_acronym]=element.Element_acronym
+       cross join AMP
+       where AMP.AMP_name = 'AMP6'
     )
 
 select * from final

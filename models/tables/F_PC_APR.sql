@@ -9,11 +9,11 @@ Company as (
 DPC as (
     select * from {{ ref('D_PC_Company_AMP') }}
 ),
-Odi_Type as (
-    select * from {{ ref('D_ODI_Type') }}
+NOTIONAL_Incentive as (
+    select * from {{ ref('D_Financial_Incentive_Type') }}
 ),
-ODI_Type_INP_ODI as (
-    select * from {{ ref('D_ODI_Type') }}
+INP_Incentive as (
+    select * from {{ ref('D_Financial_Incentive_Type') }}
 ),
 e as (
     select * from {{ ref('D_Element') }}
@@ -33,8 +33,7 @@ Year OFWAT_Year
 ,Company.[Water_Company_ID] 
 ,DPC.[PC_Company_AMP_id]
 ,Submission_Status_ID,
-e.element_ID,
-form.ODI_Form_ID
+e.element_ID
 ,[UnderP_payment_collar]
 ,[UnderP_payment_deadband]
 ,[OutP_payment_deadband]
@@ -42,9 +41,9 @@ form.ODI_Form_ID
 ,PCL 
 ,PCL_met 
 ,performance_level_actual PCL_Actual
-,ODI_Type.ODI_Type_id Notional_ODI_Type_ID,
-notional_outperformance_payment_or_underperformance_payment_accrued_GBPm Notional_ODI_Payment_Accrued_GBPm
-,ODI_Type_INP_ODI.ODI_Type_id Payment_In_Period_ODI_Type_ID
+,NOTIONAL_Incentive.Financial_Incentive_Type_Id Notional_Incentive_Type_ID,
+notional_outperformance_payment_or_underperformance_payment_accrued_GBPm Notional_Incentive_Payment_Accrued_GBPm
+,INP_Incentive.Financial_Incentive_Type_Id Payment_In_Period_ODI_Type_ID
 ,[outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm] Payment_In_Period_ODI_GBPm
 
 FROM [F_PC_APR_UNION] 
@@ -52,11 +51,10 @@ FROM [F_PC_APR_UNION]
 
 left join DPC on F_PC_APR_UNION.[Unique ID]=DPC.Unique_ID
 
-left join ODI_Type on F_PC_APR_UNION.[notional_outperformance_payment_or_underperformance_payment_accrued]=ODI_Type.ODI_Type_Description
-left join ODI_Type_INP_ODI on F_PC_APR_UNION.[outperformance_payment_or_underperformance_payment_in_period_ODI]=ODI_Type_INP_ODI.ODI_Type_Description
+left join NOTIONAL_Incentive on F_PC_APR_UNION.[notional_outperformance_payment_or_underperformance_payment_accrued]=NOTIONAL_Incentive.Financial_Incentive_type
+left join INP_Incentive on F_PC_APR_UNION.[outperformance_payment_or_underperformance_payment_in_period_ODI]=INP_Incentive.Financial_Incentive_type
 left join e on F_PC_APR_UNION.[Element_price_control_acronym]=e.Element_acronym
 
-left join  form on F_PC_APR_UNION.[ODI form]=form.[odi_form_name]
 left join  Submission on F_PC_APR_UNION.[Submission_Status]=replace(Submission.submission_status_description,'APR','')
 where F_PC_APR_UNION.Company is not null
 )
