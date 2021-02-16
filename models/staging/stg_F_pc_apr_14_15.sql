@@ -1,36 +1,44 @@
-select [Unique ID]
-,'2014-15' year
-,'Actual' submission_Status
-,[Company type] company_type
-,[Company] Company
-,[Element (price control)] Element_price_control
-,[Element (price control) acronym] Element_price_control_acronym
-,[outcome]
-,[PC ref. (company)] PC_ref_company
-,[PR14 annex 4 order]
-,[Performance commitment]
-,[ODI type]
-,[ODI form]
-,[In-period ODI]
-,[Standard ('vanilla') financial ODI] Standard_vanilla_financial_ODI
-,[Primary Category]
-,[PC unit]
-,[PC unit description]
-,[Decimal places]
-,[Direction of improving performance]
-,'N/A' notional_outperformance_payment_or_underperformance_payment_accrued
-,'N/A' notional_outperformance_payment_or_underperformance_payment_accrued_GBPm
-,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI
-,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm
-,'N/A' PCL
-,'N/A' PCL_met
-,[2014-15 performance level - actual] performance_level_actual
-,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
-,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
-,'N/A' Financial_ODI
-,'N/A' UnderP_payment_collar
-,'N/A' UnderP_payment_deadband
-,'N/A' OutP_payment_deadband
-,convert(char(20),'0') as OutP_payment_cap
-from PR14_FD_outcome_New_CSV
+with pr14 as (
+    select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
+),
 
+
+final as (
+    select unique_id
+    ,'2014-15' year
+    ,'Actual'  submission_status
+    ,company_type
+    ,company
+    ,element_name
+    ,element_acronym
+    ,outcome
+    ,pc_ref
+    ,annex
+    ,performance_commitment
+    ,odi_type
+    ,odi_form
+    ,in_period_odi
+    ,vanilla_odi
+    ,primary_category
+    ,pc_unit
+    ,pc_unit_description
+    ,decimal_places
+    ,direction_of_improving_performance
+    ,'N/A' notional_outperformance_payment_or_underperformance_payment_accrued
+    ,'N/A' notional_outperformance_payment_or_underperformance_payment_accrued_GBPm
+    ,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI
+    ,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm
+    ,'N/A' pcl
+    ,'N/A' pcl_met
+    ,[2014-15 performance level - actual] performance_level_actual
+    ,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
+    ,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
+    ,'N/A' financial_odi
+    ,'N/A' underp_payment_collar
+    ,'N/A' underp_payment_deadband
+    ,'N/A' outp_payment_deadband
+    ,'N/A' outp_payment_cap
+    from pr14
+)
+
+select * from final

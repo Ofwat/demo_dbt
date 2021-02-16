@@ -8,11 +8,11 @@ select [Unique ID] unique_id
       ,[PC primary category] primary_category
       ,[PC unit description] pc_unit_description
       ,[2014-15 starting level (PR14 FD)]
-      ,[2015-16 PCL]
-      ,[2016-17 PCL]
-      ,[2017-18 PCL]
-      ,[2018-19 PCL]
-      ,[2019-20 PCL]
+      ,[2015-16 pcl]
+      ,[2016-17 pcl]
+      ,[2017-18 pcl]
+      ,[2018-19 pcl]
+      ,[2019-20 pcl]
       ,[PC / sub-measure ID ] sub_measure_ID 
       ,[PC / sub-measure] sub_measure
       ,[Sub-measure category] sub_measure_category

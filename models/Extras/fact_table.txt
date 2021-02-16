@@ -29,13 +29,13 @@ final as (
             from [dw_niyati].[D_AMP_year]) AMP_name
       ,(select AMP_id 
             from [dw_niyati].[D_AMP_year]) AMP_id
-      ,Financial_ODI
-      ,UnderP_payment_collar
-      ,UnderP_payment_deadband
-      ,OutP_payment_deadband
-      ,OutP_payment_cap
+      ,financial_odi
+      ,underp_payment_collar
+      ,underp_payment_deadband
+      ,outp_payment_deadband
+      ,outp_payment_cap
       ,performance level - actual
-      ,PCL met
+      ,pcl met
       ,Outperformance payment or underperformance payment in-period ODIs
       ,Outperformance payment or underperformance payment in-period ODIs (GBPm)
       ,Notional outperformance payment or underperformance payment accrued at 31 March 2016
