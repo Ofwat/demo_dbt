@@ -1,9 +1,9 @@
-select * from [stg_F_PC_APR14_15]
+select * from [stg_F_pc_apr_14_15]
 union 
-select * from [stg_F_PC_APR15_16]
+select * from [stg_F_pc_apr_15_16]
 union
-select * from [stg_F_PC_APR16_17]
+select * from [stg_F_pc_apr_16_17]
 union
-select * from [stg_F_PC_APR17_18]
+select * from [stg_F_pc_apr_17_18]
 union
-select * from [stg_F_PC_APR19_20]
+select * from [stg_F_pc_apr_19_20]
