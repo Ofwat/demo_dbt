@@ -19,6 +19,9 @@ odi_type as (
 amp as (
     select * from {{ ref('D_AMP_year') }}
 ),
+element as (
+    select * from {{ ref('D_Element') }}
+),
 
 final as (
     select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_name','pc.primary_category']))}} [D_pc_company_amp_id]
@@ -28,6 +31,7 @@ final as (
     ,unique_id
     ,D_amp_year_id 
     ,outcome
+    ,PC_ref
     ,annex
     ,direction_of_improving_performance
     ,drinking_water_quality_compliance
@@ -66,6 +70,7 @@ final as (
         left join company on pr14.company=company.water_company_acronym
         left join odi_form on PR14.odi_form=odi_form.odi_form_name
         left join odi_type on PR14.odi_type=odi_type.ODI_Type_Name
+        left join element on PR14.[Element_acronym]=element.Element_acronym
         cross join amp
         where amp.amp_name = 'AMP6'
 )
