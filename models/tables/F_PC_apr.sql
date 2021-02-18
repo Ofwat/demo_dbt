@@ -35,6 +35,9 @@ renamed as (
     ,pcl 
     ,pcl_met
     ,performance_level_actual pcl_Actual
+    -- need to confirm from Anne
+	,Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
+    ,Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
     ,notionalincentive.D_Financial_incentive_type_id notional_incentive_type_id
     ,notional_outperformance_payment_or_underperformance_payment_accrued_GBPm notional_incentive_payment_accrued_GBPm
     ,inpincentive.D_Financial_incentive_type_id In_Period_incentive_type

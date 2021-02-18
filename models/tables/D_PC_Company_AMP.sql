@@ -52,14 +52,14 @@ final as (
     ,[UnderP_payment4_incentive rate (GBPm)]
     ,[OutP_payment1_incentive rate (GBPm)]
     ,[OutP_payment2_incentive rate (GBPm)]
-    ,[Water resources]
-    ,[Water network plus]
-    ,[Wastewater network plus]
-    ,[Bioresources (sludge)]
-    ,[Residential retail]
-    ,[Business retail]
-    ,[Direct procurement for customers]
-    ,[Dummy control]
+    -- ,water_resources
+    -- ,water_network_plus
+    -- ,wastewater_network_plus
+    -- ,Bioresources_sludge
+    -- ,residential_retail
+    -- ,business_retail
+    -- ,direct_procurement_for_customers
+    -- ,dummy_control
     from pr14 
         left join pc
         on ltrim(right(pr14.performance_commitment, len(pr14.performance_commitment) - charindex(':',pr14.performance_commitment)))=pc.pc_name

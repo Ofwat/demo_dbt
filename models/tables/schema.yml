@@ -2,20 +2,354 @@ version: 2
 
 models:
     - name: D_Element
-      description: "A Elements dbt model"
+      description: "Table with Elements information model"
       columns:
           - name: D_element_id
             description: "Unique id of Element"
             tests:
-                - unique
-                - not_null
+              - unique
+              - not_null
           - name: element_name
             description: "Name of Element"
             tests:
-                - unique
-                - not_null
+              - unique
+              - not_null
           - name: element_acronym
             description: "Acronym  of Element"
             tests:
-                - unique
-                - not_null
+              - unique
+              - not_null
+    - name: D_AMP_year
+      description: "Table with AMP information model"
+      columns:
+          - name: D_amp_year_id
+            description: "Unique id of AMP"
+            tests:
+            - unique
+            - not_null
+          - name: amp_name
+            description: "Name of AMP used in ofwat"
+            tests:
+              - unique
+              - not_null
+          - name: price_review
+            description: "The price review name"
+            tests:
+              - unique
+              - not_null
+          - name: start_year
+            description: "Start year of the AMP"
+            tests:
+              - unique
+              - not_null
+          - name: end_year
+            description: "End year of the AMP"
+            tests:
+              - unique
+              - not_null
+          - name: start_date
+            description: "Start date of the AMP"
+            tests:
+              - unique
+              - not_null
+          - name: end_date
+            description: "End date of the AMP"
+            tests:
+              - unique
+              - not_null
+    - name: D_PC_company_amp
+      description: "Table with connection Performance commitment, company and amp"
+      columns:
+          - name: D_pc_company_amp_id
+            description: "Unique ids for the row combintion of Performance commitment, company and amp"
+            tests:
+              - unique
+              - not_null
+          - name: pc.D_performance_commitment_id
+            description: "Id from performance commitment table for mapping"
+            tests:
+              - unique
+              - not_null 
+          - name: pc.pc_name
+            description: "Name from performance commitment table for mapping"
+            tests:
+              - unique
+              - not_null 
+          - name: company.D_water_company_id
+            description: "Id from Water company table for mapping"
+            tests:
+              - unique
+              - not_null 
+          - name: unique_id
+            description: "Unique id given for the performance commitment. It will be used in the Ofwat Fountain database and 
+                          has been generated as follows:water company acronymelement acronymPC reference"
+            tests:
+              - unique
+              - not_null 
+          - name: D_amp_year_id 
+            description: "Id from AMP year table for mapping"
+            tests:
+              - unique
+              - not_null 
+          - name: outcome
+            description: "Name of the outcome (free-format text with no validation)"
+            tests:
+            - unique
+            - not_null 
+          - name: PC_ref
+            description: "Free-format, but must be unique within each company’s set of PCs"
+            tests:
+              - unique
+              - not_null 
+          - name: annex
+            description: "The order in which the PC appeared in Annex 4 of the PR14 FD company-specific appendix"
+            tests:
+              - unique
+              - not_null 
+          - name: direction_of_improving_performance
+            description: "Up if an increase in the numeric value or score means a better (improving) performance
+                          Down if a decrease in the numeric value or score means a better (improving) performance
+                          Blank if neither of the above apply"
+            tests:
+              - unique
+              - not_null 
+          - name: drinking_water_quality_compliance
+            description: "Yes if the PC was included in the PR14 comparative assessment of drinking water quality compliance PCs, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: water_quality_contacts
+            description: "Yes if the PC was included in the PR14 comparative assessment of water quality contacts PCs, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: supply_interruptions_3_hours
+            description: "Yes if the PC was included in the PR14 comparative assessment of supply interruptions (>3 hours) PCs, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: pollution_incidents_cat_3
+            description: "Yes if the PC was included in the PR14 comparative assessment of pollution incidents (category 3) PCs, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: internal_sewer_flooding
+            description: "Yes if the PC was included in the PR14 comparative assessment of internal sewer flooding PCs, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: scheme_specific_factors_all_or_part
+            description: "Yes if the PC includes scheme-specific factors/elements, otherwise blank
+                          We are using this column to highlight PCs that relate, in the main, to specified and/ or major schemes.
+                          This is an experimental indicator and not an exact science."
+            tests:
+              - unique
+              - not_null 
+          - name: asset_health_resilience_all_or_part
+            description: "Yes if the PC includes (wholly or partially) asset health work, otherwise blank
+                          We are using this column to highlight PCs that relate, wholly or partially, to asset health or resilience.
+                          This is an experimental indicator and not an exact science."
+            tests:
+              - unique
+              - not_null 
+          - name: nep_all_or_part
+            description: "Yes if the PC includes (wholly or partially) National Environment Programme (NEP) work, otherwise blank
+                          We are using this column to highlight PCs that relate, wholly or partially, to work driven by the National Environment Programme (NEP).
+                          This is an experimental indicator and not an exact science."
+            tests:
+              - unique
+              - not_null 
+          - name: AIM
+            description: "Yes if the PC includes (wholly or partially) Abstraction Incentive Mechanism (AIM) work, otherwise blank"
+            tests:
+              - unique
+              - not_null 
+          - name: no_of_sub_measures
+            description: "Count of PC sub-measures"
+            tests:
+              - unique
+              - not_null 
+          - name: standard_odi_operand
+            description: "Some PCs with a financial ODI have an incentive rate that uses a fraction or multiple of the PC unit. We are using this column to hold the conversion factor.
+                          For example, if rather than being calculated as:
+                          £m / PC unit / year
+                          the outperformance payment or underperformance payment is calculated as:
+                          £m / 0.1 PC unit / year
+                          then the conversion factor is 10.000"
+            tests:
+              - unique
+              - not_null 
+          - name: standard_odi_operand_note
+            description: "Free-format with no validation"
+            tests:
+              - unique
+              - not_null 
+          - name: UnderP_payment1_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: UnderP_payment2_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: UnderP_payment3_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: UnderP_payment4_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: OutP_payment1_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: OutP_payment2_incentive rate (GBPm)
+            description: "Underperformance payment rate in £m
+                          Incentives rates that were changed following recalibration based on the company's menu choice are shaded in green"
+            tests:
+              - unique
+              - not_null 
+          - name: water_resources
+            description: ""
+            tests:
+              - unique
+              - not_null 
+              # Ask Anne
+          # - name: water_network_plus
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: wastewater_network_plus
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: Bioresources_sludge
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: residential_retail
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: business_retail
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: direct_procurement_for_customers
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+          # - name: dummy_control
+          #   description: ""
+          #   tests:
+          #     - unique
+          #     - not_null 
+    - name: D_Water_company
+      description: "Table with company name and acronyms used"
+      columns:
+          - name: D_water_company_id
+            description: "Id given to company(hash value)"
+            tests:
+              - unique
+              - not_null 
+          - name: pr14.Company water_company_acronym
+            description: "Acronym used for a company name"
+            tests:
+              - unique
+              - not_null 
+          - name: company_names.water_company_name
+            description: "Company names"
+            tests:
+              - unique
+              - not_null 
+          - name: pr14.company_type water_company_type
+            description: "Type of company WaSC or WoC"
+            tests:
+              - unique
+              - not_null 
+          - name: company_type.water_company_type_description 
+            description: "Description for the water company type"
+            tests:
+              - unique
+              - not_null
+    - name: D_Performance_commitment
+      description: "Table with Performance commitments and information for them"
+      columns:
+          - name: D_performance_commitment_id
+            description: "Id given to Performance commitments(hash value)"
+            tests:
+              - unique
+              - not_null 
+          - name: pc_name
+            description: "Name for Performance commitments"
+            tests:
+              - unique
+              - not_null 
+          - name: primary_category
+            description: "Primary category
+                          We have allocated a primary category to each PC. This is an experimental indicator and not an exact science as many PCs overlap categories.
+                          We have included the primary category as a means of sign-posting similar PCs. It should be noted that PCs with the same primary category may not be directly comparable. Please refer to:
+                          • the relevant PR14 final determination company-specific appendix (annex 4) for individual PC definitions; and
+                          • the outcomes policy chapter for details of where we used comparative analysis at PR14.
+                          These documents are available to download from the Ofwat website:
+                          http://www.ofwat.gov.uk/regulated-companies/price-review/price-review-2014/final-determinations/"
+            tests:
+              - unique
+              - not_null 
+          - name: pc_unit
+            description: "Unit for Performance commitments eg %, £m, category, N/A, nr, rank, score, TBC, text, time"
+            tests:
+              - unique
+              - not_null 
+          - name: pc_unit_description
+            description: "Description of the PC unit - free-format with no validation"
+            tests:
+              - unique
+              - not_null
+          - name: decimal_places
+            description: "Number of decimal places used (where applicable)"
+            tests:
+              - unique
+              - not_null
+    - name: D_Financial_incentive_type
+      description: "Table with financial incentive type"
+      columns:
+          - name: D_Financial_incentive_type_id
+            description: "Id given to financial incentive type(hash value)"
+            tests:
+              - unique
+              - not_null 
+              # Anne
+          - name: financial_incentive_type
+            description: "This column applies to ODIs that are payable at the end of AMP6
+                          Outperformance payment - an outperformance payment has accrued at 31 March
+                          Underperformance payment - an underperformance payment has accrued at 31 March
+                          Outperformance payment deadband - the actual performance level is within the outperformance payment deadband
+                          Underperformance payment deadband - the actual performance level is within the underperformance payment deadband
+                          Note: the 'PC list' worksheet does not include the Service Incentive Mechanism (SIM) adjustments in the PR19 final determinations,
+                          published December 2019. See the 'Cover' worksheet for further information."
+            tests:
+              - unique
+              - not_null 
+          - name: financial_incentive_type_desc
+            description: "Types of incentive bands description"
+            tests:
+              - unique
+              - not_null 
