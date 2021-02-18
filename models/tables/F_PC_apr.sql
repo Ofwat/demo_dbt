@@ -35,6 +35,9 @@ renamed as (
     ,pcl 
     ,pcl_met
     ,performance_level_actual pcl_Actual
+    ,isnumeric(performance_level_actual) numeric_pcl_actual
+,case when isnumeric(performance_level_actual) =1 then performance_level_actual 
+else null end numeric_derived_pcl_actual
     -- need to confirm from Anne
 	,Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
     ,Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
