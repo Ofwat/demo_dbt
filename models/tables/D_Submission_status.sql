@@ -4,7 +4,7 @@ with submission as (
 
 renamed as (
 
-    select {{dbt_utils.hash(dbt_utils.concat(['submission_status_name','submission_status_description']))}}Submission_status_id
+    select {{dbt_utils.hash(dbt_utils.concat(['submission_status_name','submission_status_description']))}} submission_status_id
     ,submission_status_name
     ,submission_status_description
     from submission

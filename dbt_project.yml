@@ -41,13 +41,13 @@ models:
         schema: staging
         materialized: view
         stg_AMP_year:
-            column_types:
-                amp_name: varchar(100)
-                price_review: varchar(100)
-                start_year: int(100)
-                end_year: int(100)
-                start_date: date(100)
-                end_date: date(100)
+         column_types:
+          amp_name: varchar(100)
+          price_review: varchar(100)
+          start_year: int(100)
+          end_year: int(100)
+          start_date: date(100)
+          end_date: date(100)
     viewTables:
         schema: staging
         materialized: view

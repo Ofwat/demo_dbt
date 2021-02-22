@@ -5,7 +5,7 @@ with pr14 as (
 
 final as (
 	
-    select  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} Element_id
+    select  {{dbt_utils.hash(dbt_utils.concat(['element_acronym','element_name']))}} element_id
     ,element_name
     ,element_acronym
     from (select distinct element_name, element_acronym from pr14) e

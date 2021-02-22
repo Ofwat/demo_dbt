@@ -29,12 +29,12 @@ renamed as (
     select year OFWAT_Year
     ,Fpcaprunion.submission_status
     ,pccompamp.unique_id
-    ,company.Water_company_id
-    ,pccompamp.PC_company_amp_id
+    ,company.water_company_id
+    ,pccompamp.pc_company_amp_id
     ,Submission_status_id
-    ,element.Element_id
-    ,odi_form.Odi_form_id
-    ,odi_type.Odi_type_id
+    ,element.element_id
+    ,odi_form.odi_form_id
+    ,odi_type.odi_type_id
     ,underp_payment_collar
     ,underp_payment_deadband
     ,outp_payment_deadband

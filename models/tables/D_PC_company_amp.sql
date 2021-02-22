@@ -18,10 +18,10 @@ element as (
 ),
 
 final as (
-    select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_name','pc.primary_category']))}} PC_company_amp_id
-    ,pc.Performance_commitment_id
+    select {{dbt_utils.hash(dbt_utils.concat(['unique_id','pc.pc_name','pc.primary_category']))}} pc_company_amp_id
+    ,pc.performance_commitment_id
     ,pc.pc_name
-    ,company.Water_company_id
+    ,company.water_company_id
     ,unique_id
     ,outcome
     ,PC_ref
