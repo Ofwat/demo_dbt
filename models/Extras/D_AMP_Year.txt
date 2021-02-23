@@ -1,4 +1,0 @@
-
-{{ config(schema='niyati') }}
-
-select * from [dw_niyati].[D_AMP_Year]

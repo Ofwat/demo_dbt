@@ -42,7 +42,7 @@ renamed as (
     ,pcl 
     ,pcl_met
     ,performance_level_actual pcl_Actual
-    ,notionalincentive.Financial_incentive_type_id Financial_incentive_type_id
+    ,coalesce(notionalincentive.Financial_incentive_type_id,inpincentive.Financial_incentive_type_id ) Financial_incentive_type_id
     ,isnumeric(performance_level_actual) numeric_pcl_actual
     ,case when isnumeric(performance_level_actual) =1 then performance_level_actual 
     else null end numeric_derived_pcl_actual
