@@ -156,9 +156,9 @@ models:
                   to: ref('D_Water_company')
                   field: water_company_id
           - name: unique_id
-             description: "Unique identifier for the performance commitment. It will be used in the
+            description: "Unique identifier for the performance commitment. It will be used in the
                            Ofwat Fountain database and has been generated as follows:
-                           PR14 + water company acronym + element acronym + “_” + PC reference
+                           PR14 + water company acronym + element acronym + _ + PC reference
                            For example: PR14AFWWSW_W-A1"
             tests:
               - unique
@@ -425,12 +425,16 @@ models:
             description: "This column applies to ODIs that are payable at the end of AMP6
                           The value of the outperformance payment or underperformance payment accrued at 31 March 2016 (£million)
                           Note: the 'PC list' worksheet does not include the Service Incentive Mechanism (SIM) adjustments in the PR19 final determinations, published December 2019. See the 'Cover' worksheet for further information."
-          - name: In_Period_incentive_type
+          - name: In_Period_incentive_type_id
             description: "This column applies to ODIs that are payable within AMP6 rather than at the end of AMP6 (that is, some of the Anglian Water, Severn Trent Water and South West Water ODIs)
                           Outperformance payment - an outperformance payment has been earned at 31 March 2016
                           Underperformance payment - an underperformance payment has been earned at 31 March 2016
                           Outperformance payment deadband - the actual performance level is within the outperformance payment deadband
                           Underperformance payment deadband - the actual performance level is within the underperformance payment deadband"
+            # tests:  
+              # - relationships:
+              #     to: ref('D_Financial_incentive_type')
+              #     field: financial_incentive_type_desc
           - name: In_Period_payment_GBPm
             description: This column applies to ODIs that are payable within AMP6 rather than at the end of AMP6 (that is, some of the Anglian Water, Severn Trent Water and South West Water ODIs)
                          The value of the outperformance payment or underperformance payment earned at 31 March 2016 (£million)"

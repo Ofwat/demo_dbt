@@ -51,7 +51,7 @@ renamed as (
     ,Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
     ,notionalincentive.Financial_incentive_type_id notional_incentive_type_id
     ,notional_outperformance_payment_or_underperformance_payment_accrued_GBPm notional_incentive_payment_accrued_GBPm
-    ,inpincentive.Financial_incentive_type_id In_Period_incentive_type
+    ,inpincentive.Financial_incentive_type_id In_Period_incentive_type_id
     ,outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm In_Period_payment_GBPm
     from Fpcaprunion 
         left join company  on Fpcaprunion.company=company.water_company_acronym
