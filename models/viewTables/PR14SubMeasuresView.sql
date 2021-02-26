@@ -64,4 +64,4 @@ select [Unique ID] unique_id
       ,[2017-18 to 2018-19]
       ,[2018-19 to 2019-20]
       ,[2014-15 to 2016-17 (AMP so far)]
-  from dw_staging.[Sub_measures_2019_CSV]
+  from dw_staging.[PR14SubMeasures]

@@ -1,5 +1,5 @@
 with pr14 as (
-    select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
+    select * from {{ ref('PR14FDOutcomeView') }}
 ),
 company as (
     select * from {{ ref('D_Water_company') }}
@@ -45,14 +45,14 @@ final as (
     ,[UnderP_payment4_incentive rate (GBPm)]
     ,[OutP_payment1_incentive rate (GBPm)]
     ,[OutP_payment2_incentive rate (GBPm)]
-    -- ,water_resources
-    -- ,water_network_plus
-    -- ,wastewater_network_plus
-    -- ,Bioresources_sludge
-    -- ,residential_retail
-    -- ,business_retail
-    -- ,direct_procurement_for_customers
-    -- ,dummy_control
+    ,water_resources
+    ,water_network_plus
+    ,wastewater_network_plus
+    ,Bioresources_sludge
+    ,residential_retail
+    ,business_retail
+    ,direct_procurement_for_customers
+    ,dummy_control
     from pr14 
         left join pc
         on ltrim(right(pr14.performance_commitment, len(pr14.performance_commitment) - charindex(':',pr14.performance_commitment)))=pc.pc_name

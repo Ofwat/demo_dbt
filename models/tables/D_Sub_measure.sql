@@ -1,5 +1,5 @@
 with submeasure as (
-    select * from {{ ref('Sub_measures_2019_CSV_View') }}
+    select * from {{ ref('PR14SubMeasuresView') }}
 ),
 pccompanyamp as (
     select * from {{ ref('D_PC_company_amp') }}

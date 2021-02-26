@@ -1,5 +1,5 @@
 with pr14 as (
-    select * from {{ ref('PR14_FD_outcome_New_CSV_View') }}
+    select * from {{ ref('PR14FDOutcomeView') }}
 ),
 
 

@@ -109,4 +109,13 @@ select  [Unique ID] as unique_id
       ,[2019-20 outperformance payment or underperformance payment in-period ODIs_estimates]
       ,[2019-20 outperformance payment or underperformance payment in-period ODIs (GBPm)_estimates]
       ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020_estimates]
-      ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020 (GBPm)_estimates] from dw_staging.[PR14_FD_outcome_New_CSV]
+      ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020 (GBPm)_estimates]
+      ,[Water resources] water_resources
+      ,[Water network plus] water_network_plus
+      ,[Wastewater network plus] wastewater_network_plus
+      ,[Bioresources (sludge)] Bioresources_sludge
+      ,[Residential retail] residential_retail
+      ,[Business retail] business_retail
+      ,[Direct procurement for customers] direct_procurement_for_customers
+      ,[Dummy control] dummy_control
+      from dw_staging.[PR14FDOutcome]
