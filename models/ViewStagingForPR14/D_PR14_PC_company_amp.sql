@@ -32,11 +32,13 @@ final as (
     ,supply_interruptions_3_hours
     ,pollution_incidents_cat_3
     ,internal_sewer_flooding
-    ,scheme_specific_factors_all_or_part
-    ,asset_health_resilience_all_or_part
-    ,nep_all_or_part
+    ,'N/A' special_cost_factor
+    ,scheme_specific_factor
+    ,asset_health
+    ,nep
     ,AIM
     ,no_of_sub_measures
+    ,'N/A' standard_odi_cal
     ,standard_odi_operand
     ,standard_odi_operand_note
     ,[UnderP_payment1_incentive rate (GBPm)]

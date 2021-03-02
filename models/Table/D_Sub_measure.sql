@@ -2,7 +2,7 @@ with submeasure as (
     select * from {{ ref('PR14SubMeasuresView') }}
 ),
 pccompanyamp as (
-    select * from {{ ref('D_PC_company_amp') }}
+    select * from {{ ref('D_PC_company_amp_union') }}
 ),
 company as (
     select * from {{ ref('D_Water_company') }}

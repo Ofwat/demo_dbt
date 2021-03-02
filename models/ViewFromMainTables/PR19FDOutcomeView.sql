@@ -20,9 +20,9 @@ SELECT [Co.] company
       ,[PC unit description] pc_unit_description
       ,[Decimal places] decimal_places
       ,[Direction of improving performance] direction_of_improving_performance
-      ,[Common and comparable bespoke performance commitment]
-      ,[Special cost factor]
-      ,[Scheme specific factor] scheme_specific_factors_all_or_part
+      ,[Common and comparable bespoke performance commitment] common_comparable_bespoke_performance_commitment
+      ,[Special cost factor] special_cost_factor
+      ,[Scheme specific factor] scheme_specific_factor
       ,[Asset health] asset_health
       ,[NEP] nep
       ,[AIM]
@@ -75,7 +75,7 @@ SELECT [Co.] company
       ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Standard outperformance payment 2 (tier 1)]
       ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Standard outperformance payment 3 (tier 3)]
       ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Enhanced outperformance payment]
-      ,[Standard ODI calculation]
-      ,[Standard ODI operand]
-      ,[Standard ODI operand note]
+      ,[Standard ODI calculation] standard_odi_cal
+      ,[Standard ODI operand] standard_odi_operand
+      ,[Standard ODI operand note] standard_odi_operand_note
   FROM [dw_staging].[PR19FDOutcome]

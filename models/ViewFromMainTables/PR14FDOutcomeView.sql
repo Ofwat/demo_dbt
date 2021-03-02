@@ -27,9 +27,9 @@ select  [Unique ID] as unique_id
       ,[Supply interruptions (>3 hours)] as supply_interruptions_3_hours
       ,[Pollution incidents (cat 3)] as pollution_incidents_cat_3
       ,[Internal sewer flooding] as internal_sewer_flooding
-      ,[Scheme specific factors (all or part)] as scheme_specific_factors_all_or_part
-      ,[Asset health/ resilience (all or part)] as asset_health_resilience_all_or_part
-      ,[NEP (all or part)] as nep_all_or_part
+      ,[Scheme specific factors (all or part)] as scheme_specific_factor
+      ,[Asset health/ resilience (all or part)] as asset_health
+      ,[NEP (all or part)] as nep
       ,[AIM]
       ,[No. of sub-measures] as no_of_sub_measures
       ,[Financial_ODI_2015-16]
