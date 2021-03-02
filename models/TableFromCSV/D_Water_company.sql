@@ -2,10 +2,10 @@ with pr14 as (
     select * from {{ ref('PR14FDOutcomeView') }}
 ),
 company_names as (
-    select * from {{ ref('stg_Water_company_names') }}
+    select * from {{ ref('raw_Water_company_names') }}
 ),
 company_type as (
-    select * from {{ ref('stg_Water_company_type') }}
+    select * from {{ ref('raw_Water_company_type') }}
 ),
 
 final as (

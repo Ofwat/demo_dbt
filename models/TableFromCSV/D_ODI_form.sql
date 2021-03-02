@@ -1,5 +1,5 @@
 with odi as (
-    select * from {{ ref('stg_ODI_form') }}
+    select * from {{ ref('raw_ODI_form') }}
 ),
 
 renamed as (

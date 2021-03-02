@@ -35,31 +35,23 @@ vars:
 # using the `{{ config(...) }}` macro.
 models:
   demo_dbt:
-    tables:
+    Table:
         materialized: table
-    csvsView:
-        schema: staging
-        materialized: view
-        stg_AMP_year:
-         column_types:
-          amp_name: varchar(100)
-          price_review: varchar(100)
-          start_year: int(100)
-          end_year: int(100)
-          start_date: date(100)
-          end_date: date(100)
-    csvsTable:
+    TableFromCSV:
         materialized: table
-    viewTables:
+    ViewFromCSV:
         schema: staging
         materialized: view
-    staging:
+    ViewFromMainTables:
         schema: staging
         materialized: view
-    PR14StagingView:
+    ViewStagingForPR14:
         schema: staging
         materialized: view
-    PR19StagingView:
+    ViewStagingForPR19:
+        schema: staging
+        materialized: view
+    ViewStagingUnion:
         schema: staging
         materialized: view
 seeds:

@@ -1,5 +1,5 @@
 with submission as (
-    select * from {{ ref('stg_Submission_status') }}
+    select * from {{ ref('raw_Submission_status') }}
 ),
 
 renamed as (

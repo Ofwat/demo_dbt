@@ -1,7 +1,7 @@
 with amp as (
-    select * from {{ ref('stg_AMP_year') }}
+    select * from {{ ref('raw_AMP_year') }}
 ),yr as (
-    select * from {{ ref('stg_Ofwat_year') }}
+    select * from {{ ref('raw_Ofwat_year') }}
 ),
 
 final as (
