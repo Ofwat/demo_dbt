@@ -5,7 +5,7 @@ company as (
     select * from {{ ref('D_Water_company') }}
 ),
 pc as (
-    select * from {{ ref('D_Performance_commitment') }}
+    select * from {{ ref('D_PR14_Performance_commitment') }}
 ),
 dateofwat as (
     select * from {{ ref('D_Date_OFWAT') }}
@@ -48,7 +48,7 @@ final as (
     ,water_resources
     ,water_network_plus
     ,wastewater_network_plus
-    ,Bioresources_sludge
+    ,bioresources_sludge
     ,residential_retail
     ,business_retail
     ,direct_procurement_for_customers

@@ -113,7 +113,7 @@ select  [Unique ID] as unique_id
       ,[Water resources] water_resources
       ,[Water network plus] water_network_plus
       ,[Wastewater network plus] wastewater_network_plus
-      ,[Bioresources (sludge)] Bioresources_sludge
+      ,[Bioresources (sludge)] bioresources_sludge
       ,[Residential retail] residential_retail
       ,[Business retail] business_retail
       ,[Direct procurement for customers] direct_procurement_for_customers

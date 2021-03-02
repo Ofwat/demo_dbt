@@ -37,11 +37,6 @@ models:
   demo_dbt:
     tables:
         materialized: table
-        D_Financial_incentive_type:
-         column_types:
-            financial_incentive_type_id: varchar(200) not null
-            financial_incentive_type: varchar(50)
-            financial_incentive_type_desc: varchar(50)
     csvsView:
         schema: staging
         materialized: view
@@ -53,10 +48,18 @@ models:
           end_year: int(100)
           start_date: date(100)
           end_date: date(100)
+    csvsTable:
+        materialized: table
     viewTables:
         schema: staging
         materialized: view
     staging:
+        schema: staging
+        materialized: view
+    PR14StagingView:
+        schema: staging
+        materialized: view
+    PR19StagingView:
         schema: staging
         materialized: view
 seeds:

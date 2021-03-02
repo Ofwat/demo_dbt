@@ -11,7 +11,7 @@ element as (
     select * from {{ ref('D_Element') }}
 ),
 pc as (
-    select * from {{ ref('D_Performance_commitment') }}
+    select * from {{ ref('D_PR14_Performance_commitment') }}
 ),
 
 final as (
