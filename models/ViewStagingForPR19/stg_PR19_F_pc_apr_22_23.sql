@@ -1,24 +1,24 @@
-with pr14 as (
-    select * from {{ ref('PR14FDOutcomeView') }}
+with pr19 as (
+    select * from {{ ref('PR19FDOutcomeView') }}
 ),
 
 
 final as (
     select unique_id
-    ,'2014-15' year
-    ,'Estimate' submission_status
-    ,company_type
+    ,'2022-23' year
+    ,'Not sure' submission_status
+    ,'N/A' company_type
     ,company
-    ,element_name
-    ,element_acronym
+    ,'N/A' element_name
+    ,'N/A' element_acronym
     ,outcome
     ,pc_ref
-    ,annex
-    ,performance_commitment
+    ,'N/A' annex
+    ,pc_name performance_commitment
     ,odi_type
     ,odi_form
-    ,in_period_odi
-    ,vanilla_odi
+    ,'N/A' in_period_odi
+    ,'N/A' vanilla_odi
     ,primary_category
     ,pc_unit
     ,pc_unit_description
@@ -28,17 +28,21 @@ final as (
     ,'N/A' notional_outperformance_payment_or_underperformance_payment_accrued_GBPm
     ,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI
     ,'N/A' outperformance_payment_or_underperformance_payment_in_period_ODI_GBPm
-    ,'N/A' pcl
+    ,[2020-25 performance commitment levels 2022-23] pcl
     ,'N/A' pcl_met
-    ,[2014-15 starting level (PR14 FD)] performance_level_actual
+    ,'N/A' performance_level_actual
     ,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast
     ,'N/A' Total_AMP6_outperformance_payment_or_underperformance_payment_forecast_GBPm
-    ,'N/A' financial_odi
+    ,[Financial ODI may accrue or apply 2022-23] financial_odi
     ,'N/A' underp_payment_collar
     ,'N/A' underp_payment_deadband
     ,'N/A' outp_payment_deadband
     ,'N/A' outp_payment_cap
-    from pr14
+    ,[Enhanced underperformance payment collar 2022-23] enhanced_underp_payment_collar
+    ,[Standard underperformance payment collar 2022-23] standard_underp_payment_collar
+    ,[Standard outperformance payment cap 2022-23] standard_outp_payment_cap
+    ,[Enhanced outperformance payment cap 2022-23] enhanced_outp_payment_cap
+     from pr19
 )
 
 select * from final

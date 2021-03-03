@@ -24,6 +24,7 @@ final as (
     ,pc_unit_description
     ,decimal_places
     ,direction_of_improving_performance
+    -- PR14 columns
     ,[2016-17 notional outperformance payment or underperformance payment accrued at 31 March 2017] notional_outperformance_payment_or_underperformance_payment_accrued
     ,[2016-17 notional outperformance payment or underperformance payment accrued at 31 March 2017 (GBPm)] notional_outperformance_payment_or_underperformance_payment_accrued_GBPm
     ,[2016-17 outperformance payment or underperformance payment in-period ODIs] outperformance_payment_or_underperformance_payment_in_period_ODI
@@ -38,6 +39,10 @@ final as (
     ,[UnderP_payment_deadband_2016-17] underp_payment_deadband
     ,[OutP_payment_deadband_2016-17] outp_payment_deadband
     ,[OutP_payment_cap_2016-17] outp_payment_cap
+    ,'N/A' enhanced_underp_payment_collar
+    ,'N/A' standard_underp_payment_collar
+    ,'N/A' standard_outp_payment_cap
+    ,'N/A' enhanced_outp_payment_cap
     from pr14
 )
 

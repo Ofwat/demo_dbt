@@ -34,6 +34,7 @@ final as (
     ,asset_health
     ,nep
     ,AIM
+    ,customers_relative_priority
     ,'N/A' no_of_sub_measures
     ,standard_odi_cal
     ,standard_odi_operand

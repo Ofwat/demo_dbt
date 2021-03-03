@@ -26,7 +26,7 @@ SELECT [Co.] company
       ,[Asset health] asset_health
       ,[NEP] nep
       ,[AIM]
-      ,[Customers' relative priority / importance]
+      ,[Customers' relative priority / importance] customers_relative_priority
       ,[2020-25 performance commitment levels 2020-21]
       ,[2020-25 performance commitment levels 2021-22]
       ,[2020-25 performance commitment levels 2022-23]

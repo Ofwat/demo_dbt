@@ -38,6 +38,10 @@ final as (
     ,'N/A' underp_payment_deadband
     ,'N/A' outp_payment_deadband
     ,'N/A' outp_payment_cap
+    ,'N/A' enhanced_underp_payment_collar
+    ,'N/A' standard_underp_payment_collar
+    ,'N/A' standard_outp_payment_cap
+    ,'N/A' enhanced_outp_payment_cap
     from pr14
 )
 
