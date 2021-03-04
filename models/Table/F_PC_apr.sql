@@ -5,10 +5,10 @@ company as (
     select * from {{ ref('D_Water_company') }}
 ),
 pccompamp as (
-    select * from {{ ref('D_PC_company_amp_union') }}
+    select * from {{ ref('stg_PC_company_amp_union') }}
 ),
 financialincentive as (
-    select * from {{ ref('D_PR14_Financial_incentive_type') }}
+    select * from {{ ref('stg_PR14_Financial_incentive_type') }}
 ),
 element as (
     select * from {{ ref('D_Element') }}

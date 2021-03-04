@@ -37,9 +37,9 @@ models:
   demo_dbt:
     Table:
         materialized: table
-    TableFromCSV:
+    TableFromRaw:
         materialized: table
-    ViewFromCSV:
+    ViewFromraw:
         schema: staging
         materialized: view
     ViewFromMainTables:

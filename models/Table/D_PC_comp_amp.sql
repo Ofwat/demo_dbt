@@ -36,4 +36,4 @@ SELECT [pc_company_amp_id]
       ,[business_retail]
       ,[direct_procurement_for_customers]
       ,[dummy_control]
-  FROM {{ ref('D_PC_company_amp_union')}}
+  FROM {{ ref('stg_PC_company_amp_union')}}

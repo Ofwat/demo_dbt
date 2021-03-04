@@ -5,7 +5,7 @@ company as (
     select * from {{ ref('D_Water_company') }}
 ),
 pc as (
-    select * from {{ ref('D_PR14_Performance_commitment') }}
+    select * from {{ ref('stg_PR14_Performance_commitment') }}
 ),
 dateofwat as (
     select * from {{ ref('D_Date_OFWAT') }}
