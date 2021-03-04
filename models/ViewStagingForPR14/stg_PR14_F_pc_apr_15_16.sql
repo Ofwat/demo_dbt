@@ -1,10 +1,4 @@
-with pr14 as (
-    select * from {{ ref('PR14FDOutcomeView') }}
-),
-
-
-final as (
-    select unique_id
+select unique_id
     ,'2015-16' year
     ,'Actual' submission_status
     ,company_type
@@ -42,7 +36,4 @@ final as (
     ,'N/A' standard_underp_payment_collar
     ,'N/A' standard_outp_payment_cap
     ,'N/A' enhanced_outp_payment_cap
-    from pr14
-)
-
-select * from final
+    from {{ ref('PR14FDOutcomeView') }}

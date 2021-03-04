@@ -51,7 +51,7 @@ models:
     ViewStagingForPR19:
         schema: staging
         materialized: view
-    ViewStagingUnion:
+    ViewStaging:
         schema: staging
         materialized: view
 seeds:

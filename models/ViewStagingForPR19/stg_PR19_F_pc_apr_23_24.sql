@@ -1,10 +1,4 @@
-with pr19 as (
-    select * from {{ ref('PR19FDOutcomeView') }}
-),
-
-
-final as (
-    select unique_id
+select unique_id
     ,'2023-24' year
     ,'Not sure' submission_status
     ,'N/A' company_type
@@ -42,7 +36,4 @@ final as (
     ,[Standard underperformance payment collar 2023-24] standard_underp_payment_collar
     ,[Standard outperformance payment cap 2023-24] standard_outp_payment_cap
     ,[Enhanced outperformance payment cap 2023-24] enhanced_outp_payment_cap
-     from pr19
-)
-
-select * from final
+     from {{ ref('PR19FDOutcomeView') }}
