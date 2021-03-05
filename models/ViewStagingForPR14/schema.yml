@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: D_Financial_incentive_type
+    description: "Table with financial incentive type"
+    columns:
+        - name: financial_incentive_type_id
+          description: "Id given to financial incentive type(hash value)"
+          tests:
+            - unique
+            - not_null 
+            # Anne
+        - name: financial_incentive_type
+          description: "This column applies to ODIs that are payable at the end of AMP6
+                        Outperformance payment - an outperformance payment has accrued at 31 March
+                        Underperformance payment - an underperformance payment has accrued at 31 March
+                        Outperformance payment deadband - the actual performance level is within the outperformance payment deadband
+                        Underperformance payment deadband - the actual performance level is within the underperformance payment deadband
+                        Note: the 'PC list' worksheet does not include the Service Incentive Mechanism (SIM) adjustments in the PR19 final determinations,
+                        published December 2019. See the 'Cover' worksheet for further information."
+          tests:
+            - unique
+            - not_null 
+        - name: financial_incentive_type_desc
+          description: "Types of incentive bands description"
+          tests:
+            - unique
+            - not_null

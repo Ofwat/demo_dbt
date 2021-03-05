@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: D_Water_company
+    description: "Table with company name and acronyms used"
+    columns:
+        - name: water_company_id
+          description: "Id given to company(hash value)"
+          tests:
+            - unique
+            - not_null 
+        - name: water_company_acronym
+          description: "Acronym used for a company name"
+          tests:
+            - unique
+            - not_null 
+        - name: water_company_name
+          description: "Company names"
+          tests:
+            - unique
+            - not_null 
+        - name: water_company_type
+          description: "Type of company WaSC or WoC"
+          tests:
+            - not_null 
+        - name: water_company_type_description 
+          description: "Description for the water company type"
+          tests:
+            - not_null
+  - name: D_ODI_form
+    description: "Table with ODI form"
+    columns:
+        - name: odi_form_id
+          description: "Id given to ODI form"
+          tests:
+            - unique
+            - not_null 
+        - name: odi_form_name
+          description: "ODI form name"
+          tests:
+            - unique
+            - not_null 
+  - name: D_ODI_type
+    description: "Table with ODI type"
+    columns:
+        - name: odi_type_id
+          description: "Id given to ODI type"
+          tests:
+            - unique
+            - not_null 
+        - name: odi_type_name 
+          description: "ODI type name"
+          tests:
+            - unique
+            - not_null
+        - name: odi_type_description
+          description: "ODI type description"
+          tests:
+            - unique
+            - not_null
+  - name: D_Submission_status
+    description: "Table with the type of submission"
+    columns:
+        - name: submission_status_id
+          description: "Id given to submission status"
+          tests:
+            - unique
+            - not_null 
+        - name: submission_status_name
+          description: "submission status name"
+          tests:
+            - unique
+            - not_null
+            - accepted_values:
+                values: ['DRAFT_DETERMINIATION','ACTUAL_APR','Forcast_APR','OFWAT_Intervention']
+        - name: submission_status_description
+          description: "submission status description"
+          tests:
+            - unique
+            - not_null
