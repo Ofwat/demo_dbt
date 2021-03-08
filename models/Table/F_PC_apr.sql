@@ -34,6 +34,7 @@ renamed as (
     ,outp_payment_cap
     ,pcl 
     ,pcl_met
+    ,enhanced_underp_payment_collar
     ,performance_level_actual pcl_Actual
     ,isnumeric(performance_level_actual) numeric_pcl_actual
     ,case when isnumeric(performance_level_actual) =1 then performance_level_actual 

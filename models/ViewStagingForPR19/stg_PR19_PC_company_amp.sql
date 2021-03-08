@@ -22,6 +22,7 @@ final as (
     ,unique_id
     ,outcome
     ,PC_ref
+    ,common_comparable_bespoke_performance_commitment
     ,'N/A' annex
     ,direction_of_improving_performance
     ,'N/A' drinking_water_quality_compliance
@@ -45,6 +46,14 @@ final as (
     ,'N/A' [UnderP_payment4_incentive rate (GBPm)]
     ,'N/A' [OutP_payment1_incentive rate (GBPm)]
     ,'N/A' [OutP_payment2_incentive rate (GBPm)]
+    ,[Underperformance payment incentive rates -£m (2017-18 CPIH deflated) Standard underperformance payment 1 (tier 2)]
+    ,[Underperformance payment incentive rates -£m (2017-18 CPIH deflated) Standard underperformance payment 2 (tier 1)]
+    ,[Underperformance payment incentive rates -£m (2017-18 CPIH deflated) Standard underperformance payment 3 (tier 3)]
+    ,[Underperformance payment incentive rates -£m (2017-18 CPIH deflated) Enhanced underperformance payment]
+    ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Standard outperformance payment 1 (tier 2)]
+    ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Standard outperformance payment 2 (tier 1)]
+    ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Standard outperformance payment 3 (tier 3)]
+    ,[Outperformance payment incentive rates £m (2017-18 CPIH deflated) Enhanced outperformance payment]
     ,water_resources
     ,water_network_plus
     ,wastewater_network_plus
