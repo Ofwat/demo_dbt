@@ -11,6 +11,7 @@ select unique_id
     ,performance_commitment
     ,odi_type
     ,odi_form
+    ,'N/A' odi_timing
     ,in_period_odi
     ,vanilla_odi
     ,primary_category

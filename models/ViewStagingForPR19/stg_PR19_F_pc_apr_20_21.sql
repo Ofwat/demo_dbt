@@ -11,6 +11,7 @@ select unique_id
     ,pc_name performance_commitment
     ,odi_type
     ,odi_form
+    ,'N/A' odi_timing
     ,'N/A' in_period_odi
     ,'N/A' vanilla_odi
     ,primary_category

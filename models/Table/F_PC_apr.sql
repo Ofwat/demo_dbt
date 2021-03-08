@@ -16,11 +16,8 @@ element as (
 submission as (
     select * from {{ ref('D_Submission_status') }}
 ),
-odi_form as (
-    select * from {{ ref('D_ODI_form') }}
-),
-odi_type as (
-    select * from {{ ref('D_ODI_type') }}
+odi_characteristics as (
+    select * from {{ ref('D_ODI_characteristics') }}
 ),
 renamed as (
     select year OFWAT_Year
@@ -30,8 +27,7 @@ renamed as (
     ,pccompamp.pc_company_amp_id
     ,Submission_status_id
     ,element.element_id
-    ,odi_form.odi_form_id
-    ,odi_type.odi_type_id
+    ,odi_characteristics.ODI_characteristics_id
     ,underp_payment_collar
     ,underp_payment_deadband
     ,outp_payment_deadband
@@ -53,13 +49,14 @@ renamed as (
         left join element on Fpcaprunion.element_acronym=element.element_acronym
         left join submission on Fpcaprunion.submission_status=submission.submission_status_name
         left join financialincentive on (coalesce([notional_outperformance_payment_or_underperformance_payment_accrued],
-                            [outperformance_payment_or_underperformance_payment_in_period_ODI])) = financialincentive.financial_incentive_type
-                    and 
+                [outperformance_payment_or_underperformance_payment_in_period_ODI])) = financialincentive.financial_incentive_type
+                and 
                 (case when [notional_outperformance_payment_or_underperformance_payment_accrued] is not null then 'Notional Period'
                 when [outperformance_payment_or_underperformance_payment_in_period_ODI] is not null then 'IN Period ODI'
                 else null end) = financialincentive.Incentive_Period
-        left join odi_form on Fpcaprunion.odi_form = odi_form.odi_form_name
-        left join odi_type on Fpcaprunion.odi_type = odi_type.odi_type_name
+        left join odi_characteristics on Fpcaprunion.odi_form = odi_characteristics.odi_form
+        and Fpcaprunion.odi_type = odi_characteristics.odi_type
+        and Fpcaprunion.odi_timing = odi_characteristics.odi_timing
         where Fpcaprunion.company is not null
 )
 

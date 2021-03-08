@@ -9,6 +9,7 @@ select  [Unique ID] as unique_id
       ,[Performance commitment] as performance_commitment
       ,[ODI type] as odi_type
       ,[ODI form] as odi_form
+      ,'N/A' odi_timing
       ,[In-period ODI] as in_period_odi
       ,[Standard ('vanilla') financial ODI] as vanilla_odi
       ,[Primary Category] as primary_category
