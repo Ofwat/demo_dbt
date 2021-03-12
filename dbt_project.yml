@@ -34,74 +34,78 @@ vars:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  demo_dbt:
     tables:
         materialized: table
+        D_Financial_incentive_type:
+         column_types:
+            financial_incentive_type_id: varchar(200) not null
+            financial_incentive_type: varchar(50)
+            financial_incentive_type_desc: varchar(50)
     csvsView:
         schema: staging
         materialized: view
-        stg_AMP_Year:
-            column_types:
-                AMP_name: varchar(100)
-                Price_Review: varchar(100)
-                start_year: int(100)
-                end_year: int(100)
-                start_date: date(100)
-                end_date: date(100)
+        stg_AMP_year:
+         column_types:
+          amp_name: varchar(100)
+          price_review: varchar(100)
+          start_year: int(100)
+          end_year: int(100)
+          start_date: date(100)
+          end_date: date(100)
     viewTables:
         schema: staging
         materialized: view
     staging:
         schema: staging
         materialized: view
-        stg_F_Sub_Measure_APR14_15:
+        stg_F_sub_measure_apr_14_15:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_APR15_16:
+        stg_F_sub_measure_apr_15_16:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_APR16_17:
+        stg_F_sub_measure_apr_16_17:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_APR17_18:
+        stg_F_sub_measure_apr_17_18:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_APR18_19:
+        stg_F_sub_measure_apr_18_19:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_APR19_20:
+        stg_F_sub_measure_apr_19_20:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
-        stg_F_Sub_Measure_Union:
+        stg_F_sub_measure_apr_union:
             column_types:
-                PCL: varchar(100)
-                Reference: varchar(100)
-                High: varchar(100)
-                Low: varchar(100)
+                pcl: varchar(100)
+                reference: varchar(100)
+                high: varchar(100)
+                low: varchar(100)
                 performance_level_met: varchar(100)
 seeds:
     demo_dbt:

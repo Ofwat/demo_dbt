@@ -1,9 +1,5 @@
-with source as (
+with odi as (
 
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
     select * from {{ ref('raw_ODI_type') }}
 
 ),
@@ -11,9 +7,8 @@ with source as (
 renamed as (
 
     select
-        odi_name,odi_description
-
-    from source
+        odi_type_name,odi_type_description
+    from odi
 
 )
 

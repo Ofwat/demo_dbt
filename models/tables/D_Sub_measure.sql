@@ -1,61 +1,50 @@
 with submeasure as (
-    select * from {{ ref('Sub_measures_2019_CSV_View') }}
+    select * from {{ ref('PR14SubMeasuresView') }}
 ),
-PCCompanyAMP as (
-    select * from {{ ref('D_PC_Company_AMP') }}
+pccompanyamp as (
+    select * from {{ ref('D_PC_company_amp') }}
 ),
-Company as (
-    select * from {{ ref('D_Water_Company') }}
+company as (
+    select * from {{ ref('D_Water_company') }}
 ),
 element as (
     select * from {{ ref('D_Element') }}
 ),
-PC as (
+pc as (
     select * from {{ ref('D_Performance_commitment') }}
 ),
 
 final as (
-SELECT  
-        {{dbt_utils.hash(dbt_utils.concat(['submeasure.Unique_ID','submeasure.sub_measure_ID','submeasure.Company']))}} [D_Sub_measure_id],
-        submeasure.Unique_ID,
-        submeasure.Company_type,
-        submeasure.Company,
-        submeasure.Element_acronym,
-        submeasure.PC_ref,
-        submeasure.Performance_commitment,
-        submeasure.ODI_type,
-        submeasure.Primary_Category,
-        submeasure.PC_unit_description,
+    select  
+        {{dbt_utils.hash(dbt_utils.concat(['submeasure.unique_id','submeasure.sub_measure_ID','submeasure.company']))}} [D_sub_measure_id],
+        submeasure.unique_id,
+        submeasure.company_type,
+        submeasure.company,
+        submeasure.element_acronym,
+        submeasure.pc_ref,
+        submeasure.performance_commitment,
+        submeasure.odi_type,
+        submeasure.primary_category,
+        submeasure.pc_unit_description,
         submeasure.sub_measure_ID,
         submeasure.sub_measure,
-        submeasure.Sub_measure_weighting,
-        submeasure.Decimal_places,
-        submeasure.Unit,
-        submeasure.[Reference_Regulatory output during 2010-15  ] Reference_Regulatory_output_during_2010_15,  
-        submeasure.[Reference_Expected performance by 2014-15  ] Reference_Expected_performance_by_2014_15,
-        submeasure.[High_Regulatory output during 2010-15  ] High_Regulatory_output_during_2010_15,
-        submeasure.[High_Expected performance by 2014-15  ] High_Expected_performance_by_2014_15,
-        submeasure.[Low_Regulatory output during 2010-15  ] Low_Regulatory_output_during_2010_15,
-        submeasure.[Low_Expected performance by 2014-15  ] Low_Expected_performance_by_2014_15,
-        submeasure.[Failure threshold for AMP6] Failure_threshold_for_AMP6,
-        submeasure.[Direction of improving performance] Direction_of_improving_performance
-        FROM submeasure 
-join PCCompanyAMP on PCCompanyAMP.Unique_ID = submeasure.Unique_ID
-join Company on Company.Company_acronym = submeasure.Company
-join element on element.Element_acronym = submeasure.Element_acronym
+        submeasure.sub_measure_category,
+        submeasure.sub_measure_weighting,
+        submeasure.decimal_places,
+        submeasure.unit,
+        submeasure.reference_regulatory_output_during_2010_15,  
+        submeasure.reference_expected_performance_by_2014_15,
+        submeasure.high_regulatory_output_during_2010_15,
+        submeasure.high_expected_performance_by_2014_15,
+        submeasure.low_regulatory_output_during_2010_15,
+        submeasure.low_expected_performance_by_2014_15,
+        submeasure.failure_threshold_for_AMP6,
+        submeasure.direction_of_improving_performance
+    from submeasure 
+    join pccompanyamp on pccompanyamp.unique_id = submeasure.unique_id
+    join company on company.water_company_acronym = submeasure.company
+    join element on element.element_acronym = submeasure.element_acronym
+    where submeasure.sub_measure_ID <> '00'
 )
 
 select * from final
-
--- SELECT DISTINCT(sub.[PC / sub-measure]) FROM [dw_staging].Sub_measures_2019_CSV sub where sub.[PC / sub-measure]IS NOT null
--- /* 174 rows*/
-
--- SELECT DISTINCT(sub.[Sub-measure category]) FROM [dw_staging].Sub_measures_2019_CSV sub where sub.[Sub-measure category] IS NOT null
---  /* 37 rows*/
-
--- SELECT sub.[PC / sub-measure],sub.[Sub-measure category] FROM [dw_staging].Sub_measures_2019_CSV sub where sub.[Sub-measure category] IS NOT null
--- order by sub.[Sub-measure category]
---  /* 183 rows*/
-
---  SELECT DISTINCT(sub.[PC / sub-measure] ),sub.[Sub-measure category] FROM [dw_staging].Sub_measures_2019_CSV sub where sub.[Sub-measure category] IS NOT null order by sub.[Sub-measure category]
---  /* It might not be valid as the same sub meausre can take place under different companies 146 rows*/

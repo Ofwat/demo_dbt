@@ -1,44 +1,45 @@
-with F_Sub_Measure_APR_Union as (
-    select * from {{ ref('stg_F_Sub_Measure_APR_Union') }}
+with F_sub_measure_apr_union as (
+    select * from {{ ref('stg_F_sub_measure_apr_union') }}
 ),
-Sub_measure as (
+sub_measure as (
     select * from {{ ref('D_Sub_measure') }}
 ),
-Company as (
-    select * from {{ ref('D_Water_Company') }}
+company as (
+    select * from {{ ref('D_Water_company') }}
 ),
-PC_Company_AMP as (
-    select * from {{ ref('D_PC_Company_AMP') }}
+pc_company_amp as (
+    select * from {{ ref('D_PC_company_amp') }}
 ),
-Sub_measure_category as (
+sub_measure_category as (
     select * from {{ ref('D_Sub_measure_category') }}
 ),
-Submission as (
+submission as (
     select * from {{ ref('D_Submission_status') }}
 ),
 
 final as (
 select 
-Sub_measure.[D_Sub_measure_id]
-,Year 
-,F_Sub_Measure_APR_Union.[Submission_Status]
-,PC_Company_AMP.[Unique_ID]
-,Company.[Water_Company_ID] 
-,PC_Company_AMP.[PC_Company_AMP_ID]
-,Sub_measure_category.[sub_measure_category_ID]
-,F_Sub_Measure_APR_Union.PCL
-,F_Sub_Measure_APR_Union.Reference
-,F_Sub_Measure_APR_Union.High
-,F_Sub_Measure_APR_Union.Low
-,F_Sub_Measure_APR_Union.performance_level_actual
-,F_Sub_Measure_APR_Union.performance_level_met
+    sub_measure.D_sub_measure_id
+    ,year 
+    ,F_sub_measure_apr_union.submission_status
+    ,pc_company_amp.unique_id
+    ,company.water_company_id
+    ,pc_company_amp.pc_company_amp_id
+    ,sub_measure_category.sub_measure_category_id
+    ,F_sub_measure_apr_union.reference
+    ,F_sub_measure_apr_union.high
+    ,F_sub_measure_apr_union.low
+    ,F_sub_measure_apr_union.performance_level_actual
+    ,F_sub_measure_apr_union.performance_level_met
 
-FROM [F_Sub_Measure_APR_Union] 
-    left join Sub_measure on {{dbt_utils.hash(dbt_utils.concat(['F_Sub_Measure_APR_Union.Unique_ID','F_Sub_Measure_APR_Union.sub_measure_ID','F_Sub_Measure_APR_Union.Company']))}} = Sub_measure.D_Sub_measure_id
-    left join Company  on F_Sub_Measure_APR_Union.Company = Company.Company_acronym
-    left join PC_Company_AMP on F_Sub_Measure_APR_Union.[Unique_ID] = PC_Company_AMP.Unique_ID
-    left join Sub_measure_category on F_Sub_Measure_APR_Union.[sub_measure_category] = Sub_measure_category.sub_measure_category
-    left join  Submission on F_Sub_Measure_APR_Union.[Submission_Status]=replace(Submission.submission_status_description,'APR','')
+FROM [F_sub_measure_apr_union] 
+    inner join sub_measure on 
+        {{dbt_utils.hash(dbt_utils.concat(['F_sub_measure_apr_union.unique_id','F_sub_measure_apr_union.sub_measure_ID','F_sub_measure_apr_union.company']))}} 
+        = sub_measure.D_sub_measure_id
+    left join company on F_sub_measure_apr_union.company = company.water_company_acronym
+    left join pc_company_amp on F_sub_measure_apr_union.[unique_id] = pc_company_amp.unique_id
+    left join sub_measure_category on F_sub_measure_apr_union.[sub_measure_category] = sub_measure_category.sub_measure_category
+    left join  submission on F_sub_measure_apr_union.[submission_status]=replace(submission.submission_status_description,'APR','')
 )
 
 select * from final

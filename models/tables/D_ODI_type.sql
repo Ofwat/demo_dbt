@@ -1,15 +1,13 @@
-with source as (
-    
+with odi as ( 
     select * from {{ ref('stg_ODI_type') }}
-
 ),
 
 renamed as (
 
-    select  {{dbt_utils.hash(dbt_utils.concat(['odi_name','odi_description']))}} [ODI_Type_id]
-,ODI_name ODI_Type_Name,ODI_description ODI_Type_Description
-
-    from source
+    select  {{dbt_utils.hash(dbt_utils.concat(['odi_type_name','odi_type_description']))}} odi_type_id
+    ,odi_type_name
+    ,odi_type_description
+    from odi
 
 )
 

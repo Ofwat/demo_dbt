@@ -1,9 +1,6 @@
-odi_name,odi_description
+odi_type_name,odi_type_description
 NFI,Non-financial incentive (reputational)
 Out,Outperformance payment only
 Under,Underperformance payment only
 Out & under,Outperformance payment & underperformance payment
 Other,Other incentive
-Under payment,Underperformance payment
-Out payment deadband,Outperformance payment deadband
-Out payment,Outperformance payment

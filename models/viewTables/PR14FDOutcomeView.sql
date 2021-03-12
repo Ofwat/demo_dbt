@@ -1,37 +1,37 @@
-SELECT  [Unique ID] as Unique_ID
-      ,[Company type] as Company_type
-      ,[Company]
-      ,[Element (price control)] as Element_name
-      ,[Element (price control) acronym] as Element_acronym
-      ,[Outcome]
-      ,[PC ref. (company)] as PC_ref
-      ,[PR14 Annex 4 order] as Annex
-      ,[Performance commitment] as Performance_commitment
-      ,[ODI type] as ODI_type
-      ,[ODI form] as ODI_form
-      ,[In-period ODI] as In_period_ODI
-      ,[Standard ('vanilla') financial ODI] as Vanilla_ODI
-      ,[Primary Category] as Primary_Category
-      ,[PC unit] as PC_unit
-      ,[PC unit description] as PC_unit_description
-      ,[Decimal places] as Decimal_places
-      ,[Direction of improving performance] as Direction_of_improving_performance
+select  [Unique ID] as unique_id
+      ,[Company type] as company_type
+      ,[Company] company
+      ,[Element (price control)] as element_name
+      ,[Element (price control) acronym] as element_acronym
+      ,[outcome] outcome
+      ,[PC ref. (company)] as pc_ref
+      ,[PR14 annex 4 order] as annex
+      ,[Performance commitment] as performance_commitment
+      ,[ODI type] as odi_type
+      ,[ODI form] as odi_form
+      ,[In-period ODI] as in_period_odi
+      ,[Standard ('vanilla') financial ODI] as vanilla_odi
+      ,[Primary Category] as primary_category
+      ,[PC unit] as pc_unit
+      ,[PC unit description] as pc_unit_description
+      ,[Decimal places] as decimal_places
+      ,[Direction of improving performance] as direction_of_improving_performance
       ,[2014-15 starting level (PR14 FD)]
       ,[2015-16 PCL]
       ,[2016-17 PCL]
       ,[2017-18 PCL]
       ,[2018-19 PCL]
       ,[2019-20 PCL]
-      ,[Drinking water quality compliance] as Drinking_water_quality_compliance
-      ,[Water quality contacts] as Water_quality_contacts
-      ,[Supply interruptions (>3 hours)] as Supply_interruptions_3_hours
-      ,[Pollution incidents (cat 3)] as Pollution_incidents_cat_3
-      ,[Internal sewer flooding] as Internal_sewer_flooding
-      ,[Scheme specific factors (all or part)] as Scheme_specific_factors_all_or_part
-      ,[Asset health/ resilience (all or part)] as Asset_health_resilience_all_or_part
-      ,[NEP (all or part)] as NEP_all_or_part
+      ,[Drinking water quality compliance] as drinking_water_quality_compliance
+      ,[Water quality contacts] as water_quality_contacts
+      ,[Supply interruptions (>3 hours)] as supply_interruptions_3_hours
+      ,[Pollution incidents (cat 3)] as pollution_incidents_cat_3
+      ,[Internal sewer flooding] as internal_sewer_flooding
+      ,[Scheme specific factors (all or part)] as scheme_specific_factors_all_or_part
+      ,[Asset health/ resilience (all or part)] as asset_health_resilience_all_or_part
+      ,[NEP (all or part)] as nep_all_or_part
       ,[AIM]
-      ,[No. of sub-measures] as No_of_sub_measures
+      ,[No. of sub-measures] as no_of_sub_measures
       ,[Financial_ODI_2015-16]
       ,[Financial_ODI_2016-17]
       ,[Financial_ODI_2017-18]
@@ -63,8 +63,8 @@ SELECT  [Unique ID] as Unique_ID
       ,[UnderP_payment4_incentive rate (GBPm)]
       ,[OutP_payment1_incentive rate (GBPm)]
       ,[OutP_payment2_incentive rate (GBPm)]
-      ,[Standard ODI operand] as Standard_ODI_operand
-      ,[Standard ODI operand note] as Standard_ODI_operand_note
+      ,[Standard ODI operand] as standard_odi_operand
+      ,[Standard ODI operand note] as standard_odi_operand_note
       ,[2014-15 performance level - actual]
       ,[2015-16 performance level - actual]
       ,[2015-16 PCL met?]
@@ -110,13 +110,12 @@ SELECT  [Unique ID] as Unique_ID
       ,[2019-20 outperformance payment or underperformance payment in-period ODIs (GBPm)_estimates]
       ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020_estimates]
       ,[2019-20 notional outperformance payment or underperformance payment accrued at 31 March 2020 (GBPm)_estimates]
-      ,[Water resources]
-      ,[Water network plus]
-      ,[Wastewater network plus]
-      ,[Bioresources (sludge)]
-      ,[Residential retail]
-      ,[Business retail]
-      ,[Direct procurement for customers]
-      ,[Dummy control]
-      ,[Total]
-      ,[ODI form  UU and YKY only  values highlighted in red should be amended to 'Revenue', 'RCV' or 'SHLDER'] FROM dw_staging.[PR14_FD_outcome_New_CSV]
+      ,[Water resources] water_resources
+      ,[Water network plus] water_network_plus
+      ,[Wastewater network plus] wastewater_network_plus
+      ,[Bioresources (sludge)] Bioresources_sludge
+      ,[Residential retail] residential_retail
+      ,[Business retail] business_retail
+      ,[Direct procurement for customers] direct_procurement_for_customers
+      ,[Dummy control] dummy_control
+      from dw_staging.[PR14FDOutcome]

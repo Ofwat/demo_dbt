@@ -1,19 +1,13 @@
-with source as (
-
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
+with companyname as (
     select * from {{ ref('raw_Water_company_names') }}
-
 ),
 
 renamed as (
 
     select
-        Company_acronym,Company_name
-    from source
-
+        water_company_acronym,water_company_name
+    from companyname
+    
 )
 
 select * from renamed

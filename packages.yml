@@ -3,3 +3,4 @@ packages:
     version: 0.6.4
   - git: https://github.com/dbt-msft/tsql-utils.git
     revision: 0.6.4
+    
